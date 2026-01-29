@@ -1,7 +1,25 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Section, Button, Card } from '../components/ui'
+import { API_LAUNCH_DATE, getCountdown } from '../lib/dates'
 
 export function Docs() {
+  const [countdown, setCountdown] = useState(getCountdown(API_LAUNCH_DATE))
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown(getCountdown(API_LAUNCH_DATE))
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const countdownItems = [
+    { value: String(countdown.days).padStart(2, '0'), label: 'DAYS' },
+    { value: String(countdown.hours).padStart(2, '0'), label: 'HOURS' },
+    { value: String(countdown.mins).padStart(2, '0'), label: 'MINS' },
+    { value: String(countdown.secs).padStart(2, '0'), label: 'SECS' },
+  ]
+
   return (
     <Section grid className="min-h-[80vh] flex items-center">
       <div className="text-center max-w-3xl mx-auto">
@@ -48,14 +66,9 @@ export function Docs() {
           <div className="glass-card rounded-lg p-8 mb-8">
             <p className="text-sm text-brand-muted mb-4 uppercase tracking-wider">Public API Launch</p>
             <div className="grid grid-cols-4 gap-4">
-              {[
-                { value: '07', label: 'DAYS' },
-                { value: '14', label: 'HOURS' },
-                { value: '32', label: 'MINS' },
-                { value: '58', label: 'SECS' },
-              ].map((item) => (
+              {countdownItems.map((item) => (
                 <div key={item.label} className="text-center">
-                  <div className="text-3xl md:text-5xl font-bold text-brand-accent mb-2">
+                  <div className="text-3xl md:text-5xl font-bold text-brand-accent mb-2 font-mono tabular-nums">
                     {item.value}
                   </div>
                   <div className="text-xs text-brand-muted tracking-widest">

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Section, Card } from '../components/ui'
+import { getLastCanaryUpdate, getNextCanaryUpdate, formatDateShort } from '../lib/dates'
 
 // Pulse animation - draws from left to right once on load
 function PulseLine() {
@@ -127,6 +128,8 @@ const verificationSteps = [
 
 export function Canary() {
   const [currentTime, setCurrentTime] = useState(new Date())
+  const lastUpdate = getLastCanaryUpdate()
+  const nextUpdate = getNextCanaryUpdate()
   
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000)
@@ -222,11 +225,11 @@ export function Canary() {
                   {/* Dates */}
                   <div className="flex gap-6">
                     <div className="text-center px-6 py-4 rounded-xl bg-white/[0.02] border border-white/5">
-                      <div className="text-2xl font-bold text-white font-mono">27.01.26</div>
+                      <div className="text-2xl font-bold text-white font-mono">{formatDateShort(lastUpdate)}</div>
                       <div className="text-xs text-brand-muted uppercase tracking-wider mt-1">Last Update</div>
                     </div>
                     <div className="text-center px-6 py-4 rounded-xl bg-white/[0.02] border border-white/5">
-                      <div className="text-2xl font-bold text-white font-mono">27.02.26</div>
+                      <div className="text-2xl font-bold text-white font-mono">{formatDateShort(nextUpdate)}</div>
                       <div className="text-xs text-brand-muted uppercase tracking-wider mt-1">Next Due</div>
                     </div>
                   </div>
@@ -377,7 +380,7 @@ export function Canary() {
             <h2 className="text-2xl font-bold text-center mb-2">
               FORMAL <span className="text-brand-accent">LEGAL</span> DECLARATIONS
             </h2>
-            <p className="text-brand-muted text-center mb-8">Specific negative confirmations as of 27.01.2026</p>
+            <p className="text-brand-muted text-center mb-8">Specific negative confirmations as of {formatDateShort(lastUpdate)}</p>
             
             <div className="bg-[#0a0a0a] rounded-xl border border-white/10 overflow-hidden font-mono text-sm">
               {/* Terminal Header */}
