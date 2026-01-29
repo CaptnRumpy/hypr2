@@ -1,7 +1,14 @@
 import { motion } from 'framer-motion'
-import { Section, Card, Button } from '../components/ui'
+import { Section, Button } from '../components/ui'
+import { useSEO } from '../lib/seo'
 
 export function CaseStudies() {
+  useSEO({
+    title: 'Case Studies',
+    description: 'Real-world applications of HYPRSTRM data extraction. See how hedge funds, AI labs, marketing agencies, and risk consultancies use our platform.',
+    keywords: 'case studies, use cases, hedge fund data, AI training data, influencer marketing, risk intelligence'
+  })
+
   return (
     <>
       {/* Hero */}

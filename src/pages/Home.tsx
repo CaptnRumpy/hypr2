@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Section, SectionHeader, Card, CodeBlock, Button } from '../components/ui'
+import { useSEO } from '../lib/seo'
 
 const platforms = [
   { 
@@ -143,6 +144,10 @@ const streamFeatures = [
 ]
 
 export function Home() {
+  useSEO({
+    keywords: 'social media scraper, data extraction, TikTok scraper, YouTube scraper, Instagram scraper, Reddit scraper, API, web scraping, OCR, ASR'
+  })
+
   return (
     <>
       {/* Hero Section */}

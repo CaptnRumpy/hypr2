@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Section, SectionHeader, Card } from '../components/ui'
+import { useSEO } from '../lib/seo'
 
 const principles = [
   {
@@ -56,6 +57,12 @@ const trustFeatures = [
 ]
 
 export function About() {
+  useSEO({
+    title: 'About Us',
+    description: 'Learn about HYPRSTRM - the infrastructure utility powering data extraction for AI models, hedge funds, and intelligence operations. Privacy-first, adversarial engineering.',
+    keywords: 'about HYPRSTRM, data extraction company, privacy-focused, anonymous payments, no-KYC'
+  })
+
   return (
     <>
       {/* Hero */}

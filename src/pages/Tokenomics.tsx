@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Section, SectionHeader, Card, Button } from '../components/ui'
+import { useSEO } from '../lib/seo'
 
 const tiers = [
   {
@@ -186,6 +187,12 @@ const tokenPacks = [
 ]
 
 export function Tokenomics() {
+  useSEO({
+    title: 'Pricing & Tokenomics',
+    description: 'HYPRSTRM pricing plans and token economy. Free tier available. Pay-as-you-go with transparent token costs. Accept crypto payments including Monero and Bitcoin.',
+    keywords: 'pricing, API pricing, token economy, crypto payments, Monero, Bitcoin, subscription plans'
+  })
+
   return (
     <>
       {/* Hero */}

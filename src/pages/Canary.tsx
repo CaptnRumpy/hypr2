@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Section, Card } from '../components/ui'
+import { Section } from '../components/ui'
 import { getLastCanaryUpdate, getNextCanaryUpdate, formatDateShort } from '../lib/dates'
+import { useSEO } from '../lib/seo'
 
 // Pulse animation - draws from left to right once on load
 function PulseLine() {
@@ -127,6 +128,12 @@ const verificationSteps = [
 ]
 
 export function Canary() {
+  useSEO({
+    title: 'Warrant Canary',
+    description: 'HYPRSTRM warrant canary and transparency report. Cryptographic commitment to user privacy. Updated monthly. Zero government requests received.',
+    keywords: 'warrant canary, transparency report, privacy, no surveillance, gag order, NSL'
+  })
+
   const [currentTime, setCurrentTime] = useState(new Date())
   const lastUpdate = getLastCanaryUpdate()
   const nextUpdate = getNextCanaryUpdate()
@@ -355,7 +362,7 @@ export function Canary() {
                 { label: 'Subpoenas Received', value: '0' },
                 { label: 'User Data Shared', value: '0' },
                 { label: 'Security Breaches', value: '0' },
-              ].map((stat, index) => (
+              ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-green-600 mb-2">
                     {stat.value}

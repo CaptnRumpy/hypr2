@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Section, SectionHeader, Card, Button, CodeBlock } from './ui'
 
@@ -14,6 +15,7 @@ interface ScraperPageProps {
   features: Feature[]
   useCases: string[]
   codeExample: string[]
+  icon?: React.ReactNode
 }
 
 export function ScraperPage({
@@ -24,7 +26,17 @@ export function ScraperPage({
   features,
   useCases,
   codeExample,
+  icon,
 }: ScraperPageProps) {
+  // SEO for scraper pages
+  useEffect(() => {
+    document.title = `${platform} Scraper API | HYPRSTRM`
+    const metaDesc = document.querySelector('meta[name="description"]')
+    if (metaDesc) {
+      metaDesc.setAttribute('content', `${platform} scraper API. ${tagline}. ${description}`)
+    }
+  }, [platform, tagline, description])
+
   return (
     <>
       {/* Hero */}
@@ -37,9 +49,9 @@ export function ScraperPage({
           >
             <div
               className="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6"
-              style={{ backgroundColor: `${color}20` }}
+              style={{ backgroundColor: `${color}20`, color }}
             >
-              <span className="text-4xl" style={{ color }}>●</span>
+              {icon || <span className="text-4xl">●</span>}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-brand-text mb-4">
               {platform} <span className="gradient-text">SCRAPER API</span>

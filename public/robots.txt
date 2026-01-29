@@ -1,0 +1,9 @@
+# HYPRSTRM Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hyprstrm.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

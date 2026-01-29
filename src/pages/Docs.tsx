@@ -2,8 +2,15 @@ import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Section, Button, Card } from '../components/ui'
 import { getApiLaunchDate, getCountdown } from '../lib/dates'
+import { useSEO } from '../lib/seo'
 
 export function Docs() {
+  useSEO({
+    title: 'API Documentation',
+    description: 'HYPRSTRM API documentation. Access our high-performance social media data extraction API. Currently in private beta with public launch coming soon.',
+    keywords: 'API documentation, REST API, social media API, data extraction API, scraping API'
+  })
+
   // Store the launch date so it doesn't reset on every render
   const launchDate = useMemo(() => getApiLaunchDate(), [])
   const [countdown, setCountdown] = useState(getCountdown(launchDate))
