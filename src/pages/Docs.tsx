@@ -1,17 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Section, Button, Card } from '../components/ui'
-import { API_LAUNCH_DATE, getCountdown } from '../lib/dates'
+import { getApiLaunchDate, getCountdown } from '../lib/dates'
 
 export function Docs() {
-  const [countdown, setCountdown] = useState(getCountdown(API_LAUNCH_DATE))
+  // Store the launch date so it doesn't reset on every render
+  const launchDate = useMemo(() => getApiLaunchDate(), [])
+  const [countdown, setCountdown] = useState(getCountdown(launchDate))
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCountdown(getCountdown(API_LAUNCH_DATE))
+      setCountdown(getCountdown(launchDate))
     }, 1000)
     return () => clearInterval(timer)
-  }, [])
+  }, [launchDate])
 
   const countdownItems = [
     { value: String(countdown.days).padStart(2, '0'), label: 'DAYS' },

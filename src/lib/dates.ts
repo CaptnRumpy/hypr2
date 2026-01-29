@@ -4,9 +4,13 @@
 // The canary updates on the 27th of each month
 export const CANARY_UPDATE_DAY = 27
 
-// API public launch date - correlates with canary schedule
-// Set to the 27th of the target launch month
-export const API_LAUNCH_DATE = new Date('2026-02-27T00:00:00Z')
+// API public launch countdown - always 7 days from now
+// This creates a perpetual "coming soon" countdown
+export function getApiLaunchDate(): Date {
+  const now = new Date()
+  const launchDate = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000)
+  return launchDate
+}
 
 // Get the last canary update date (27th of current or previous month)
 export function getLastCanaryUpdate(): Date {
