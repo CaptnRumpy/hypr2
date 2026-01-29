@@ -69,10 +69,6 @@ export function CaseStudies() {
             <p className="text-brand-muted">If negative sentiment for a flagship product spikes 2 weeks before earnings, they (for example) short the stock.</p>
           </div>
           
-          <Card hover={false} className="border-white/10">
-            <h3 className="text-lg font-bold text-white mb-4">The Reality:</h3>
-            <p className="text-brand-muted italic">"We saw the 'dupe' trend killing a major activewear brand's margins three weeks before Wall Street did. The analysts were looking at shipping manifests; we were listening to the customers' actual voices."</p>
-          </Card>
         </motion.div>
       </Section>
 
@@ -123,10 +119,6 @@ export function CaseStudies() {
             <p className="text-brand-muted">Their chatbot understands a viral meme reference ~6 hours after it starts trending, whereas competitors take weeks.</p>
           </div>
           
-          <Card hover={false} className="border-white/10">
-            <h3 className="text-lg font-bold text-white mb-4">The Reality:</h3>
-            <p className="text-brand-muted italic">"Language evolves faster than arXiv papers. Hyprstrm allows our model to 'touch grass' digitally. If a new slang term drops on Tuesday, our model speaks it fluently by Wednesday morning."</p>
-          </Card>
         </motion.div>
       </Section>
 
@@ -172,10 +164,6 @@ export function CaseStudies() {
             <p className="text-brand-muted"><strong className="text-white">The Clawback:</strong> If an influencer agreed to 60 seconds of exposure but only provided 15 seconds, the agency automatically adjusts the payout.</p>
           </div>
           
-          <Card hover={false} className="border-white/10">
-            <h3 className="text-lg font-bold text-white mb-4">The Reality:</h3>
-            <p className="text-brand-muted italic">"We recovered $400k in 'wasted' ad spend in Q1 alone. We don't argue with influencers anymore; we just show them the timestamped logs where their camera didn't focus on the product."</p>
-          </Card>
         </motion.div>
       </Section>
 
@@ -219,10 +207,6 @@ export function CaseStudies() {
             </div>
           </div>
           
-          <Card hover={false} className="border-white/10">
-            <h3 className="text-lg font-bold text-white mb-4">The Reality:</h3>
-            <p className="text-brand-muted italic">"We detected a warehouse fire in Shenzhen 18 minutes before Reuters. For our clients with supply chain exposure, that's worth millions."</p>
-          </Card>
         </motion.div>
       </Section>
 
