@@ -16,13 +16,13 @@ export function Terms() {
         <p className="text-brand-muted mb-12">Last Updated: 27.01.2025</p>
 
         {/* Important Disclaimer */}
-        <Card hover={false} className="border-brand-accent mb-12">
+        <div className="bg-brand-dark p-6 border border-brand-accent mb-12">
           <h2 className="text-xl font-bold text-brand-accent mb-4">IMPORTANT LEGAL DISCLAIMER & LIABILITY WAIVER</h2>
           <p className="text-brand-muted text-sm mb-4">READ THIS SECTION CAREFULLY. IT LIMITS THE LIABILITY OF HYPRSTRM.COM TO THE MAXIMUM EXTENT PERMITTED BY LAW.</p>
           <p className="text-brand-muted text-sm mb-4">HYPRSTRM.COM ("THE SERVICE") IS A NEUTRAL INFRASTRUCTURE PROVIDER. WE PROVIDE SOFTWARE TOOLS FOR DATA EXTRACTION, OCR, AND ASR ANALYSIS. WE DO NOT CREATE, CONTROL, OR CLAIM OWNERSHIP OF ANY DATA ACCESSED THROUGH OUR TOOLS.</p>
           <p className="text-brand-muted text-sm mb-4">YOU ASSUME FULL LEGAL RESPONSIBILITY. BY USING THIS SERVICE, YOU ACKNOWLEDGE THAT YOU ARE SOLELY RESPONSIBLE FOR COMPLYING WITH ALL APPLICABLE LAWS, INCLUDING INTERNATIONAL COPYRIGHT TREATIES, DATA PRIVACY LAWS (GDPR, CCPA), AND THE TERMS OF SERVICE OF ANY THIRD-PARTY PLATFORMS. HYPRSTRM SHALL NOT BE HELD LIABLE FOR YOUR VIOLATION OF ANY THIRD-PARTY CONTRACTS OR INTERNATIONAL REGULATIONS.</p>
           <p className="text-brand-muted text-sm">USE AT YOUR OWN RISK. HYPRSTRM IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. WE MAKE NO WARRANTIES THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</p>
-        </Card>
+        </div>
 
         <div className="space-y-8">
           {/* Section 1 */}
@@ -84,7 +84,7 @@ export function Terms() {
           </div>
 
           {/* Section 5 */}
-          <Card hover={false} className="border-brand-accent">
+          <div className="bg-brand-dark p-6 border border-brand-accent">
             <h2 className="text-2xl font-bold text-brand-accent mb-4">5. Maximum Limitation of Liability</h2>
             <p className="text-brand-muted text-sm mb-4">YOU ACKNOWLEDGE THAT DATA EXTRACTION IS AN ADVERSARIAL INDUSTRY. TARGET PLATFORMS (E.G., TIKTOK, LINKEDIN) FREQUENTLY CHANGE THEIR CODE, API STRUCTURES, AND ANTI-BOT DEFENSES. HYPRSTRM DOES NOT GUARANTEE CONTINUOUS ACCESS TO ANY SPECIFIC THIRD-PARTY PLATFORM. WE SHALL NOT BE LIABLE FOR SERVICE INTERRUPTIONS, "BROKEN" SCRAPERS, OR ACCOUNT BANS RESULTING FROM THIRD-PARTY UPDATES OR SECURITY PATCHES.</p>
             
@@ -96,7 +96,7 @@ export function Terms() {
               <li><strong className="text-white">Accuracy:</strong> The accuracy, truthfulness, or completeness of any data extracted or AI-generated insights (Topic Modeling, Sentiment).</li>
             </ul>
             <p className="text-brand-muted text-sm"><strong className="text-white">Monetary Cap:</strong> HYPRSTRM'S TOTAL CUMULATIVE LIABILITY FOR ANY CLAIMS ARISING OUT OF THIS AGREEMENT SHALL NOT EXCEED THE TOTAL AMOUNT PAID BY YOU TO HYPRSTRM IN THE ONE (1) MONTH PERIOD IMMEDIATELY PRECEDING THE INCIDENT.</p>
-          </Card>
+          </div>
 
           {/* Section 5.1 */}
           <div>
@@ -147,11 +147,102 @@ export function Terms() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Section 8 */}
           <div>
-            <h2 className="text-2xl font-bold text-white mb-4">Contact</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">8. Intellectual Property</h2>
+            <p className="text-brand-muted mb-4">All rights, title, and interest in and to the Service (excluding third-party data) are and will remain the exclusive property of Hyprstrm and its licensors. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Hyprstrm.</p>
+            <p className="text-brand-muted"><strong className="text-white">Your Data:</strong> You retain all rights to the data you extract using our Service. We claim no ownership over your queries, collected data, or derived insights.</p>
+          </div>
+
+          {/* Section 9 */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">9. Termination</h2>
+            <p className="text-brand-muted mb-4"><strong className="text-white">Termination by You:</strong> You may terminate your account at any time by discontinuing use of the Service and deleting your API Key. Unused Token balances are forfeited.</p>
+            <p className="text-brand-muted mb-4"><strong className="text-white">Termination by Hyprstrm:</strong> We may terminate or suspend your access immediately, without prior notice or liability, for any reason whatsoever, including but not limited to suspicion of prohibited activity.</p>
+            <p className="text-brand-muted mb-4"><strong className="text-white">Effect of Termination:</strong> Upon termination:</p>
+            <ul className="text-brand-muted space-y-2 list-disc list-inside">
+              <li>Your right to access the API ceases immediately.</li>
+              <li><strong className="text-white">No Refunds:</strong> You are not entitled to a refund of any unused Token balance, except where required by applicable law.</li>
+              <li><strong className="text-white">Data Deletion:</strong> We may immediately delete any data associated with your account.</li>
+            </ul>
+          </div>
+
+          {/* Section 10 */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">10. Governing Law & International Arbitration</h2>
+            <p className="text-brand-muted mb-4"><strong className="text-white">Governing Law:</strong> These Terms shall be governed by and construed in accordance with generally accepted principles of international commercial law (UNIDROIT Principles), excluding conflict of law rules.</p>
+            
+            <p className="text-brand-muted mb-4"><strong className="text-white">Binding Arbitration (UNCITRAL Rules):</strong> Any dispute, controversy, or claim arising out of or relating to this contract, including the validity, invalidity, breach, or termination thereof, shall be settled by arbitration in accordance with the UNCITRAL Arbitration Rules as at present in force.</p>
+            
+            <h3 className="text-lg font-bold text-brand-accent mb-3">Arbitration Particulars:</h3>
+            <ul className="text-brand-muted space-y-2 mb-4">
+              <li><strong className="text-white">Appointing Authority:</strong> The appointing authority shall be the Secretary-General of the Permanent Court of Arbitration at The Hague.</li>
+              <li><strong className="text-white">Number of Arbitrators:</strong> The number of arbitrators shall be one (1).</li>
+              <li><strong className="text-white">Seat of Arbitration:</strong> The legal seat of arbitration shall be Victoria, Republic of Seychelles.</li>
+              <li><strong className="text-white">Venue & Format:</strong> The arbitration shall be conducted exclusively via virtual means (remote hearing) or written submissions. No physical presence in the Seychelles shall be required.</li>
+              <li><strong className="text-white">Language:</strong> The language of the arbitration shall be English.</li>
+            </ul>
+            
+            <h3 className="text-lg font-bold text-brand-accent mb-3">Class Action Waiver:</h3>
+            <p className="text-brand-muted">You agree that any arbitration or proceeding shall be limited to the Dispute between us and you individually. To the full extent permitted by law, (i) no arbitration or proceeding shall be joined with any other; (ii) there is no right or authority for any Dispute to be arbitrated or resolved on a class action-basis or to utilize class action procedures.</p>
+          </div>
+
+          {/* Section 10.1 */}
+          <div>
+            <h3 className="text-lg font-bold text-brand-accent mb-3">10.1 Waiver of Mass Arbitration</h3>
+            <p className="text-brand-muted mb-4">If 25 or more similar demands for arbitration are filed against Hyprstrm by the same or coordinated counsel ("Mass Filing"), you agree to the following "Bellwether" protocol: (a) The standard UNCITRAL filing fees shall be suspended. (b) The claims shall be resolved in batches of five (5) at a time. (c) No other claims may be filed or prosecuted until the prior batch of 5 has been adjudicated and a final award issued. (d) You agree not to initiate or participate in any Mass Filing against Hyprstrm outside of this protocol.</p>
+            
+            <h3 className="text-lg font-bold text-brand-accent mb-3">10.2 Exception for Equitable Relief</h3>
+            <p className="text-brand-muted">Notwithstanding the foregoing, Hyprstrm reserves the right to seek immediate injunctive relief (TRO) or other equitable remedies in any court of competent jurisdiction to protect its Intellectual Property, Confidential Information, or infrastructure integrity, without the need to post a bond or prove actual damages.</p>
+          </div>
+
+          {/* Section 11 */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">11. Changes to Terms</h2>
+            <p className="text-brand-muted">We reserve the right to modify these Terms at any time. Your continued use of the Service after revisions constitutes acceptance of the new Terms.</p>
+          </div>
+
+          {/* Section 12 */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">12. Severability & Non-Waiver</h2>
+            <p className="text-brand-muted mb-4">If any provision of these Terms is held to be unenforceable or invalid by a court of competent jurisdiction, that provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law, and the remaining provisions will continue in full force and effect. The failure of Hyprstrm to enforce any right or provision of these Terms will not be considered a waiver of those rights.</p>
+            
+            <h3 className="text-lg font-bold text-brand-accent mb-3">12.1 Survival</h3>
+            <p className="text-brand-muted">All provisions of these Terms which by their nature should survive termination shall survive termination, including, without limitation: Ownership provisions, Warranty Disclaimers, Indemnity, Limitations of Liability, and Arbitration provisions.</p>
+          </div>
+
+          {/* Section 13 */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">13. No Right of Audit</h2>
+            <p className="text-brand-muted">Due to the proprietary and high-security nature of our infrastructure, Hyprstrm does not grant users, partners, or their auditors the right to conduct on-site or virtual audits of our data centers, codebases, or operational logs. We provide our standard "Transparency Report" and "Warrant Canary" in lieu of individual audits.</p>
+          </div>
+
+          {/* Section 14 */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">14. Force Majeure</h2>
+            <p className="text-brand-muted mb-4">Hyprstrm shall not be liable for any delay or failure to perform resulting from causes outside its reasonable control, including, but not limited to:</p>
+            <ul className="text-brand-muted space-y-2 list-disc list-inside">
+              <li><strong className="text-white">Acts of God:</strong> Fire, flood, earthquake, or natural disaster.</li>
+              <li><strong className="text-white">Infrastructure Failure:</strong> Failure of the public internet, power outages, or denial-of-service (DDoS) attacks against our infrastructure.</li>
+              <li><strong className="text-white">Third-Party Collapse:</strong> The insolvency or service suspension of critical third-party providers (e.g., GPU cloud providers, Proxy networks, Payment gateways).</li>
+              <li><strong className="text-white">Government Action:</strong> New laws, embargoes, or seizure of assets by regulatory authorities.</li>
+            </ul>
+          </div>
+
+          {/* Section 15 */}
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-4">15. Entire Agreement</h2>
+            <p className="text-brand-muted mb-4">These Terms constitute the entire and exclusive understanding between you and Hyprstrm regarding the Service, and these Terms supersede and replace any and all prior oral or written understandings or agreements (including sales promises, Discord chats, or email correspondence).</p>
+            
+            <h3 className="text-lg font-bold text-brand-accent mb-3">15.1 Assignment</h3>
+            <p className="text-brand-muted">You may not assign, transfer, or delegate these Terms or your rights/obligations hereunder without Hyprstrm's prior written consent. Hyprstrm may freely assign these Terms. Any attempted assignment in violation of this section shall be null and void.</p>
+          </div>
+
+          {/* Contact */}
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <h2 className="text-xl font-bold text-white mb-4">Contact Us</h2>
             <p className="text-brand-muted">
-              For questions about these terms, contact:{' '}
+              If you have any questions about these Terms, please contact us at{' '}
               <a href="mailto:hyprstrm@pm.me" className="text-brand-accent hover:underline">
                 hyprstrm@pm.me
               </a>
