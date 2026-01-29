@@ -141,13 +141,13 @@ export function About() {
         <Card hover={false} className="max-w-3xl mx-auto">
           <p className="text-brand-muted leading-relaxed mb-4">
             Our architecture is designed around a simple principle: we cannot share what we do not have. 
-            We minimize data collection by design, not policy. Technical limitations protect our users 
+            We minimize data collection by design, not policy. Technical limitations protect you 
             more reliably than legal promises ever could.
           </p>
           <p className="text-brand-muted leading-relaxed">
-            To governments and corporations seeking to identify our users or access their data: 
-            we are not interested in your requests. Our systems are built so that compliance is 
-            technically impossible in most cases—and we intend to keep it that way.
+            If anyone ever comes asking about you—whether it's a government agency, a corporation, or 
+            anyone else—we simply have nothing to give them. Our systems are built so that compliance 
+            is technically impossible in most cases. That's not a bug, it's the whole point.
           </p>
         </Card>
       </Section>
