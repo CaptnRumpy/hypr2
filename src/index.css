@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";
+@import "@fontsource/geist-mono/600.css";
+@import "@fontsource/geist-mono/700.css";
+
+/* Brand Colors */
+@theme {
+  --color-brand-black: #050505;
+  --color-brand-dark: #0f0f0f;
+  --color-brand-gray: #1f1f1f;
+  --color-brand-accent: #ff4d00;
+  --color-brand-accent-hover: #ff6b2b;
+  --color-brand-text: #e5e5e5;
+  --color-brand-muted: #888888;
+  --font-mono: "Geist Mono", monospace;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050505;
+  color: #e5e5e5;
+  font-family: "Geist Mono", monospace;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .grid-bg {
+    background-image: 
+      linear-gradient(to right, #1f1f1f 1px, transparent 1px),
+      linear-gradient(to bottom, #1f1f1f 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px rgba(255, 77, 0, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-nav {
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ff4d00, #ff6b2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 77, 0, 0.2);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2f2f2f;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(255, 77, 0, 0.3);
+  color: #fff;
+}

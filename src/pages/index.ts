@@ -1,0 +1,6 @@
+export { Home } from './Home'
+export { About } from './About'
+export { Docs } from './Docs'
+export { Tokenomics } from './Tokenomics'
+export { Canary } from './Canary'
+export { CaseStudies } from './CaseStudies'
