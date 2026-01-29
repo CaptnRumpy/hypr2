@@ -162,8 +162,9 @@ export function Home() {
               ENGINE
             </h1>
             <p className="text-lg text-brand-muted mb-8 max-w-2xl mx-auto leading-relaxed">
-              Turn public social data into actionable insights. Scrape TikTok, YouTube, Instagram, and Twitch 
-              with zero infrastructure headaches. Available as a No-Code Dashboard or High-Performance API.
+              Turn public social data into actionable insights. Scrape TikTok, YouTube, Instagram, Google, 
+              and more—with zero infrastructure headaches. No coding required: use our visual dashboard, 
+              or integrate via our High-Performance API.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button to="/docs" size="lg">
