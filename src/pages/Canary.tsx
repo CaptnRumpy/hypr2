@@ -2,47 +2,33 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Section, Card } from '../components/ui'
 
-// Pulse line that sweeps left to right
+// Clean pulse line animation - single line with glowing scanner
 function PulseLine() {
   return (
-    <div className="relative w-full h-16 overflow-hidden">
-      {/* Static baseline */}
-      <div className="absolute inset-0 flex items-center">
-        <div className="w-full h-[2px] bg-green-500/20" />
-      </div>
-      
-      {/* Heartbeat pattern */}
+    <div className="relative w-full h-12 overflow-hidden rounded-lg bg-black/30">
+      {/* Static EKG pattern */}
       <svg 
         className="absolute inset-0 w-full h-full" 
-        viewBox="0 0 400 60" 
+        viewBox="0 0 400 48" 
         preserveAspectRatio="none"
       >
         <path
-          d="M0,30 L120,30 L140,30 L160,30 L180,8 L200,52 L220,20 L240,40 L260,30 L400,30"
+          d="M0,24 L100,24 L120,24 L140,24 L155,8 L170,40 L185,16 L200,32 L215,24 L280,24 L400,24"
           fill="none"
-          stroke="rgba(34, 197, 94, 0.3)"
+          stroke="rgba(34, 197, 94, 0.25)"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
       
-      {/* Animated pulse sweep */}
-      <div className="absolute inset-0 flex items-center">
-        <div 
-          className="h-full w-32 animate-pulse-sweep"
-          style={{
-            background: 'linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.6) 50%, transparent 100%)',
-          }}
-        />
-      </div>
-      
-      {/* Glowing dot that follows the sweep */}
-      <div className="absolute inset-0 flex items-center">
-        <div 
-          className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_12px_4px_rgba(34,197,94,0.6)] animate-pulse-dot"
-        />
-      </div>
+      {/* Animated scanner line */}
+      <div 
+        className="absolute top-0 bottom-0 w-24 animate-scanner"
+        style={{
+          background: 'linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.4) 50%, transparent 100%)',
+        }}
+      />
     </div>
   )
 }
@@ -126,25 +112,14 @@ export function Canary() {
 
   return (
     <>
-      {/* Custom animations */}
+      {/* Custom animation */}
       <style>{`
-        @keyframes pulse-sweep {
-          0% { transform: translateX(-100%); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateX(1200%); opacity: 0; }
+        @keyframes scanner {
+          0% { left: -6rem; }
+          100% { left: 100%; }
         }
-        @keyframes pulse-dot {
-          0% { transform: translateX(-8px); opacity: 0; }
-          5% { opacity: 1; }
-          95% { opacity: 1; }
-          100% { transform: translateX(calc(100vw - 8px)); opacity: 0; }
-        }
-        .animate-pulse-sweep {
-          animation: pulse-sweep 3s ease-in-out infinite;
-        }
-        .animate-pulse-dot {
-          animation: pulse-dot 3s ease-in-out infinite;
+        .animate-scanner {
+          animation: scanner 2.5s ease-in-out infinite;
         }
       `}</style>
 
@@ -157,11 +132,6 @@ export function Canary() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/5 mb-8">
-              <PulsingDot />
-              <span className="text-green-500 text-sm font-mono uppercase tracking-wider">System Integrity Verified</span>
-            </div>
-            
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
               WARRANT <span className="text-brand-accent">CANARY</span>
             </h1>
@@ -185,18 +155,32 @@ export function Canary() {
             <div className="absolute -inset-1 bg-gradient-to-r from-green-500/20 via-green-500/10 to-green-500/20 rounded-2xl blur-xl" />
             
             <div className="relative bg-black/80 backdrop-blur-xl rounded-2xl border border-green-500/20 overflow-hidden">
-              {/* Header bar */}
+              {/* Header bar with System Integrity badge */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-white/[0.02]">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-white/10" />
-                    <div className="w-3 h-3 rounded-full bg-white/10" />
-                    <div className="w-3 h-3 rounded-full bg-white/10" />
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-white/10" />
+                      <div className="w-3 h-3 rounded-full bg-white/10" />
+                      <div className="w-3 h-3 rounded-full bg-white/10" />
+                    </div>
+                    <span className="text-xs text-brand-muted font-mono">canary_status.sys</span>
                   </div>
-                  <span className="text-xs text-brand-muted font-mono">canary_status.sys</span>
+                  <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/30 bg-green-500/5">
+                    <PulsingDot />
+                    <span className="text-green-500 text-xs font-mono uppercase tracking-wider">System Integrity Verified</span>
+                  </div>
                 </div>
                 <div className="text-xs text-brand-muted font-mono">
                   {currentTime.toISOString().slice(0, 19).replace('T', ' ')} UTC
+                </div>
+              </div>
+
+              {/* Mobile System Integrity badge */}
+              <div className="md:hidden flex justify-center py-3 border-b border-white/5 bg-white/[0.01]">
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/30 bg-green-500/5">
+                  <PulsingDot />
+                  <span className="text-green-500 text-xs font-mono uppercase tracking-wider">System Integrity Verified</span>
                 </div>
               </div>
 
