@@ -2,24 +2,38 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Section, Card } from '../components/ui'
 
-// Simple pulse animation - glows once on load
+// Pulse animation - draws from left to right once on load
 function PulseLine() {
   return (
     <div className="relative w-full h-12 overflow-hidden rounded-lg bg-black/30">
-      {/* EKG pattern with pulse animation */}
       <svg 
         className="absolute inset-0 w-full h-full" 
         viewBox="0 0 400 48" 
         preserveAspectRatio="none"
       >
+        {/* Background path (dim) */}
         <path
           d="M0,24 L100,24 L120,24 L140,24 L155,8 L170,40 L185,16 L200,32 L215,24 L280,24 L400,24"
           fill="none"
-          stroke="rgba(34, 197, 94, 0.3)"
+          stroke="rgba(34, 197, 94, 0.1)"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="animate-pulse-once"
+        />
+        {/* Animated path that draws in */}
+        <path
+          d="M0,24 L100,24 L120,24 L140,24 L155,8 L170,40 L185,16 L200,32 L215,24 L280,24 L400,24"
+          fill="none"
+          stroke="rgba(34, 197, 94, 0.8)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="animate-draw-line"
+          style={{
+            strokeDasharray: 600,
+            strokeDashoffset: 600,
+            filter: 'drop-shadow(0 0 6px rgba(34, 197, 94, 0.6))',
+          }}
         />
       </svg>
     </div>
@@ -88,11 +102,27 @@ const legalConfirmations = [
   'Gag Orders of Any Kind',
 ]
 
-const historyLog = [
-  { date: '27.01.2026', status: 'CLEAR', note: 'Monthly verification complete. All systems nominal.' },
-  { date: '27.12.2025', status: 'CLEAR', note: 'Year-end audit complete. Zero requests received.' },
-  { date: '27.11.2025', status: 'CLEAR', note: 'Infrastructure migration complete. No security incidents.' },
-  { date: '27.10.2025', status: 'CLEAR', note: 'Quarterly review. Canary status verified.' },
+const verificationSteps = [
+  { 
+    step: '01', 
+    title: 'Check the Status', 
+    desc: 'Verify the main status panel shows "ALIVE" with a green indicator.' 
+  },
+  { 
+    step: '02', 
+    title: 'Verify the Date', 
+    desc: 'Confirm the "Last Update" date is within the past 31 days.' 
+  },
+  { 
+    step: '03', 
+    title: 'Review Declarations', 
+    desc: 'Each declaration should show NOT_RECEIVED status.' 
+  },
+  { 
+    step: '04', 
+    title: 'Monitor Monthly', 
+    desc: 'Bookmark this page and check back each month. Silence means compromise.' 
+  },
 ]
 
 export function Canary() {
@@ -399,7 +429,7 @@ export function Canary() {
         </div>
       </Section>
 
-      {/* Update History */}
+      {/* Verification Protocol */}
       <Section className="bg-brand-dark border-y border-white/5">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -409,30 +439,26 @@ export function Canary() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl font-bold text-center mb-2">
-              UPDATE <span className="text-brand-accent">HISTORY</span>
+              VERIFICATION <span className="text-brand-accent">PROTOCOL</span>
             </h2>
-            <p className="text-brand-muted text-center mb-8">Recent canary verification log</p>
+            <p className="text-brand-muted text-center mb-8">How to verify our canary status yourself</p>
             
-            <div className="space-y-3">
-              {historyLog.map((entry, index) => (
+            <div className="grid md:grid-cols-2 gap-4">
+              {verificationSteps.map((item, index) => (
                 <motion.div
-                  key={entry.date}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  key={item.step}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-4 rounded-lg bg-black/40 border border-white/5"
+                  className="flex gap-4 p-5 rounded-xl bg-black/40 border border-white/5 hover:border-brand-accent/20 transition-colors"
                 >
-                  <div className="flex-shrink-0 w-24 text-sm font-mono text-brand-muted">
-                    {entry.date}
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center">
+                    <span className="text-brand-accent font-bold font-mono">{item.step}</span>
                   </div>
-                  <div className="flex-shrink-0">
-                    <span className="px-2 py-1 rounded text-xs font-bold bg-green-500/10 text-green-500 border border-green-500/20">
-                      {entry.status}
-                    </span>
-                  </div>
-                  <div className="text-sm text-brand-muted">
-                    {entry.note}
+                  <div>
+                    <h3 className="font-bold text-white mb-1">{item.title}</h3>
+                    <p className="text-sm text-brand-muted">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
