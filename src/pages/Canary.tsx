@@ -2,21 +2,33 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Section, Card } from '../components/ui'
 
-// Animated heartbeat line
+// Smooth continuous heartbeat line
 function HeartbeatLine() {
   return (
-    <svg className="w-full h-12" viewBox="0 0 400 50" preserveAspectRatio="none">
-      <motion.path
-        d="M0,25 L80,25 L90,25 L100,10 L110,40 L120,15 L130,35 L140,25 L160,25 L400,25"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        className="text-green-500"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ duration: 2, ease: "easeInOut" }}
-      />
-    </svg>
+    <div className="relative w-full h-16 overflow-hidden">
+      <svg 
+        className="absolute w-[200%] h-full animate-heartbeat-scroll" 
+        viewBox="0 0 800 60" 
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgb(34, 197, 94)" stopOpacity="0.1" />
+            <stop offset="50%" stopColor="rgb(34, 197, 94)" stopOpacity="1" />
+            <stop offset="100%" stopColor="rgb(34, 197, 94)" stopOpacity="0.1" />
+          </linearGradient>
+        </defs>
+        {/* First heartbeat pattern */}
+        <path
+          d="M0,30 L60,30 L80,30 L90,30 L100,10 L110,50 L120,20 L130,40 L140,30 L200,30 L260,30 L280,30 L290,30 L300,10 L310,50 L320,20 L330,40 L340,30 L400,30 L460,30 L480,30 L490,30 L500,10 L510,50 L520,20 L530,40 L540,30 L600,30 L660,30 L680,30 L690,30 L700,10 L710,50 L720,20 L730,40 L740,30 L800,30"
+          fill="none"
+          stroke="url(#lineGradient)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   )
 }
 
@@ -82,6 +94,13 @@ const legalConfirmations = [
   'Gag Orders of Any Kind',
 ]
 
+const historyLog = [
+  { date: '27.01.2026', status: 'CLEAR', note: 'Monthly verification complete. All systems nominal.' },
+  { date: '27.12.2025', status: 'CLEAR', note: 'Year-end audit complete. Zero requests received.' },
+  { date: '27.11.2025', status: 'CLEAR', note: 'Infrastructure migration complete. No security incidents.' },
+  { date: '27.10.2025', status: 'CLEAR', note: 'Quarterly review. Canary status verified.' },
+]
+
 export function Canary() {
   const [currentTime, setCurrentTime] = useState(new Date())
   
@@ -92,6 +111,17 @@ export function Canary() {
 
   return (
     <>
+      {/* Add custom animation keyframes */}
+      <style>{`
+        @keyframes heartbeat-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-heartbeat-scroll {
+          animation: heartbeat-scroll 4s linear infinite;
+        }
+      `}</style>
+
       {/* Hero */}
       <Section className="pt-32 pb-16 overflow-hidden">
         <div className="max-w-6xl mx-auto">
@@ -109,8 +139,12 @@ export function Canary() {
             <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
               WARRANT <span className="text-brand-accent">CANARY</span>
             </h1>
-            <p className="text-xl text-brand-muted max-w-2xl mx-auto">
+            <p className="text-xl text-brand-muted max-w-2xl mx-auto mb-4">
               A cryptographic commitment to transparency. Updated monthly. If this page goes dark, assume compromise.
+            </p>
+            <p className="text-sm text-brand-muted/70 max-w-xl mx-auto">
+              The term "warrant canary" derives from the historic use of canaries in coal mines to detect dangerous gases. 
+              Similarly, our canary signals the safety of our infrastructure.
             </p>
           </motion.div>
 
@@ -177,9 +211,54 @@ export function Canary() {
                 </div>
 
                 {/* Heartbeat line */}
-                <div className="mt-8 opacity-50">
+                <div className="mt-8 opacity-60">
                   <HeartbeatLine />
                 </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* What is a Warrant Canary */}
+      <Section className="bg-brand-dark border-y border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold text-center mb-2">
+              WHAT IS A <span className="text-brand-accent">WARRANT CANARY</span>?
+            </h2>
+            <p className="text-brand-muted text-center mb-8 max-w-2xl mx-auto">
+              Understanding how this transparency mechanism protects you
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-white">The Legal Mechanism</h3>
+                <p className="text-brand-muted text-sm leading-relaxed">
+                  Many government agencies can serve companies with secret orders (like National Security Letters) 
+                  that come with "gag orders" - legal prohibitions against revealing the order's existence.
+                </p>
+                <p className="text-brand-muted text-sm leading-relaxed">
+                  While we cannot legally say "we received a secret order," we CAN stop saying "we have NOT 
+                  received any secret orders." The absence of our regular update IS the message.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-white">How It Protects You</h3>
+                <p className="text-brand-muted text-sm leading-relaxed">
+                  As long as this page updates regularly and continues to state that we have received no 
+                  secret orders, you can trust that our infrastructure remains uncompromised by government 
+                  surveillance.
+                </p>
+                <p className="text-brand-muted text-sm leading-relaxed">
+                  We update this canary monthly. If an update is missed, or if this page disappears, 
+                  you should assume that we have been served with a secret order and act accordingly.
+                </p>
               </div>
             </div>
           </motion.div>
@@ -189,6 +268,19 @@ export function Canary() {
       {/* Declaration Grid */}
       <Section>
         <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl font-bold mb-2">
+              CURRENT <span className="text-brand-accent">STATUS</span>
+            </h2>
+            <p className="text-brand-muted">Real-time verification of our operational integrity</p>
+          </motion.div>
+
           <div className="grid md:grid-cols-2 gap-4">
             {declarations.map((item, index) => (
               <motion.div
@@ -226,21 +318,27 @@ export function Canary() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
-            {[
-              { label: 'Government Requests', value: '0' },
-              { label: 'Subpoenas Received', value: '0' },
-              { label: 'User Data Shared', value: '0' },
-              { label: 'Compromises', value: '0' },
-            ].map((stat, index) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-green-600 mb-2">
-                  {stat.value}
+            <h2 className="text-2xl font-bold text-center mb-2">
+              TRANSPARENCY <span className="text-brand-accent">METRICS</span>
+            </h2>
+            <p className="text-brand-muted text-center mb-12">Lifetime statistics since service inception</p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { label: 'Government Requests', value: '0' },
+                { label: 'Subpoenas Received', value: '0' },
+                { label: 'User Data Shared', value: '0' },
+                { label: 'Security Breaches', value: '0' },
+              ].map((stat, index) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-green-600 mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-brand-muted uppercase tracking-wider">{stat.label}</div>
                 </div>
-                <div className="text-xs text-brand-muted uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </motion.div>
         </div>
       </Section>
@@ -255,9 +353,9 @@ export function Canary() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl font-bold text-center mb-2">
-              FORMAL <span className="text-brand-accent">NEGATIVE</span> CONFIRMATIONS
+              FORMAL <span className="text-brand-accent">LEGAL</span> DECLARATIONS
             </h2>
-            <p className="text-brand-muted text-center mb-8">Legal declarations as of the last update</p>
+            <p className="text-brand-muted text-center mb-8">Specific negative confirmations as of 27.01.2026</p>
             
             <div className="bg-[#0a0a0a] rounded-xl border border-white/10 overflow-hidden font-mono text-sm">
               {/* Terminal Header */}
@@ -267,16 +365,16 @@ export function Canary() {
                   <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
                   <div className="w-3 h-3 rounded-full bg-[#27ca40]" />
                 </div>
-                <span className="ml-3 text-brand-muted">verify_canary --all</span>
+                <span className="ml-3 text-brand-muted">verify_canary --formal --all</span>
               </div>
               
               {/* Terminal Content */}
               <div className="p-6 space-y-1">
                 <div className="text-brand-muted">
-                  <span className="text-green-500">$</span> Scanning legal request database...
+                  <span className="text-green-500">$</span> Hyprstrm and its operators explicitly state:
                 </div>
                 <div className="text-brand-muted mb-4">
-                  <span className="text-green-500">$</span> Running verification protocol...
+                  <span className="text-green-500">$</span> We have NOT received any of the following...
                 </div>
                 
                 <div className="h-px bg-white/5 my-4" />
@@ -301,7 +399,7 @@ export function Canary() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  ALL_CHECKS_PASSED
+                  VERIFICATION_COMPLETE :: ALL_CHECKS_PASSED
                 </div>
               </div>
             </div>
@@ -309,8 +407,50 @@ export function Canary() {
         </div>
       </Section>
 
-      {/* Privacy Architecture */}
+      {/* Update History */}
       <Section className="bg-brand-dark border-y border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold text-center mb-2">
+              UPDATE <span className="text-brand-accent">HISTORY</span>
+            </h2>
+            <p className="text-brand-muted text-center mb-8">Recent canary verification log</p>
+            
+            <div className="space-y-3">
+              {historyLog.map((entry, index) => (
+                <motion.div
+                  key={entry.date}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="flex items-center gap-4 p-4 rounded-lg bg-black/40 border border-white/5"
+                >
+                  <div className="flex-shrink-0 w-24 text-sm font-mono text-brand-muted">
+                    {entry.date}
+                  </div>
+                  <div className="flex-shrink-0">
+                    <span className="px-2 py-1 rounded text-xs font-bold bg-green-500/10 text-green-500 border border-green-500/20">
+                      {entry.status}
+                    </span>
+                  </div>
+                  <div className="text-sm text-brand-muted">
+                    {entry.note}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Privacy Architecture */}
+      <Section>
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -327,7 +467,7 @@ export function Canary() {
               {[
                 {
                   title: 'Zero Knowledge',
-                  desc: 'No names, addresses, or payment details. Just a wallet address and an anonymized identifier.',
+                  desc: 'No names, addresses, or payment details. Just a wallet address and an anonymized identifier. We cannot identify you because we never collected your identity.',
                   icon: (
                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -336,7 +476,7 @@ export function Canary() {
                 },
                 {
                   title: 'Ephemeral Processing',
-                  desc: 'Data flows through RAM and hits your webhook. Nothing persists. We are a pipeline, not storage.',
+                  desc: 'Data flows through RAM and hits your webhook. Nothing persists on our servers. We are a real-time pipeline, not a data warehouse.',
                   icon: (
                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -345,7 +485,7 @@ export function Canary() {
                 },
                 {
                   title: 'Privacy by Design',
-                  desc: 'Our architecture is built so we cannot access your data. We cannot share what we do not have.',
+                  desc: 'Our architecture is built so we cannot access your data. There are no backdoors, no master keys, no admin overrides. We cannot share what we cannot access.',
                   icon: (
                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -359,15 +499,65 @@ export function Canary() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="text-center p-8 rounded-xl bg-black/40 border border-white/5"
+                  className="text-center p-8 rounded-xl bg-black/40 border border-white/5 hover:border-brand-accent/30 transition-colors"
                 >
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10 text-brand-accent mb-4">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-brand-muted">{item.desc}</p>
+                  <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
+                  <p className="text-sm text-brand-muted leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Additional Assurances */}
+      <Section className="bg-brand-dark border-y border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold text-center mb-2">
+              ADDITIONAL <span className="text-brand-accent">ASSURANCES</span>
+            </h2>
+            <p className="text-brand-muted text-center mb-8">Further commitments to our users</p>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-6 rounded-xl bg-black/40 border border-white/5">
+                <h3 className="font-bold text-white mb-3">Infrastructure Integrity</h3>
+                <p className="text-sm text-brand-muted leading-relaxed">
+                  To our knowledge, no third party (governmental or otherwise) has gained unauthorized access 
+                  to our core infrastructure, cryptographic keys, or user database. Our security team 
+                  continuously monitors for intrusion attempts.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-black/40 border border-white/5">
+                <h3 className="font-bold text-white mb-3">Data Minimization</h3>
+                <p className="text-sm text-brand-muted leading-relaxed">
+                  Our operational logging practices remain minimal by design. We do not engage in bulk 
+                  data retention or user surveillance beyond what is strictly necessary for security 
+                  and billing purposes.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-black/40 border border-white/5">
+                <h3 className="font-bold text-white mb-3">No Compromised Employees</h3>
+                <p className="text-sm text-brand-muted leading-relaxed">
+                  To our knowledge, no current or former employee has been coerced, bribed, or otherwise 
+                  compromised into providing unauthorized access to our systems or user information.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-black/40 border border-white/5">
+                <h3 className="font-bold text-white mb-3">Code Integrity</h3>
+                <p className="text-sm text-brand-muted leading-relaxed">
+                  We have not been required to modify our source code, insert vulnerabilities, or weaken 
+                  our cryptographic implementations by any third party, governmental or otherwise.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -392,8 +582,15 @@ export function Canary() {
               IF THE CANARY <span className="text-red-500">STOPS SINGING</span>
             </h2>
             
-            <p className="text-brand-muted mb-10 text-lg">
-              This page updates monthly. If an update is missed without notice, or if this page disappears—assume compromise. The silence will speak louder than any statement.
+            <p className="text-brand-muted mb-6 text-lg">
+              This page updates on the 27th of every month. If an update is missed without prior notice, 
+              or if this page becomes inaccessible, you should assume that we have been compromised.
+            </p>
+            
+            <p className="text-brand-muted mb-10">
+              The silence will speak louder than any statement we could make. We will continue to 
+              update this page monthly. If we are ever served with a secret order that prohibits 
+              us from updating, our silence will be your warning.
             </p>
             
             <div className="inline-block p-8 rounded-2xl bg-black/40 border border-white/5">
