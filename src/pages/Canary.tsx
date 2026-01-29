@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Section, Card } from '../components/ui'
 
-// Clean pulse line animation - single line with glowing scanner
+// Simple pulse animation - glows once on load
 function PulseLine() {
   return (
     <div className="relative w-full h-12 overflow-hidden rounded-lg bg-black/30">
-      {/* Static EKG pattern */}
+      {/* EKG pattern with pulse animation */}
       <svg 
         className="absolute inset-0 w-full h-full" 
         viewBox="0 0 400 48" 
@@ -15,20 +15,13 @@ function PulseLine() {
         <path
           d="M0,24 L100,24 L120,24 L140,24 L155,8 L170,40 L185,16 L200,32 L215,24 L280,24 L400,24"
           fill="none"
-          stroke="rgba(34, 197, 94, 0.25)"
+          stroke="rgba(34, 197, 94, 0.3)"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          className="animate-pulse-once"
         />
       </svg>
-      
-      {/* Animated scanner line */}
-      <div 
-        className="absolute top-0 bottom-0 w-24 animate-scanner"
-        style={{
-          background: 'linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.4) 50%, transparent 100%)',
-        }}
-      />
     </div>
   )
 }
@@ -112,17 +105,6 @@ export function Canary() {
 
   return (
     <>
-      {/* Custom animation */}
-      <style>{`
-        @keyframes scanner {
-          0% { left: -6rem; }
-          100% { left: 100%; }
-        }
-        .animate-scanner {
-          animation: scanner 2.5s ease-in-out infinite;
-        }
-      `}</style>
-
       {/* Hero */}
       <Section className="pt-32 pb-16 overflow-hidden">
         <div className="max-w-6xl mx-auto">

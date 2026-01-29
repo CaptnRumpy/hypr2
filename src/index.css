@@ -92,3 +92,23 @@ body {
   background: rgba(255, 77, 0, 0.3);
   color: #fff;
 }
+
+/* Canary page pulse animation - one time glow */
+@keyframes pulse-once {
+  0% {
+    stroke: rgba(34, 197, 94, 0.2);
+    filter: drop-shadow(0 0 0px rgba(34, 197, 94, 0));
+  }
+  50% {
+    stroke: rgba(34, 197, 94, 1);
+    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.8));
+  }
+  100% {
+    stroke: rgba(34, 197, 94, 0.3);
+    filter: drop-shadow(0 0 2px rgba(34, 197, 94, 0.2));
+  }
+}
+
+.animate-pulse-once {
+  animation: pulse-once 1.5s ease-out forwards;
+}

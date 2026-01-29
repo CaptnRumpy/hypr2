@@ -140,14 +140,14 @@ export function About() {
         />
         <Card hover={false} className="max-w-3xl mx-auto">
           <p className="text-brand-muted leading-relaxed mb-4">
-            Our operational structure is designed for resilience. We operate across multiple jurisdictions 
-            with no single point of legal failure. Our core infrastructure is hosted in privacy-respecting 
-            regions with strong data protection laws.
+            Our architecture is designed around a simple principle: we cannot share what we do not have. 
+            We minimize data collection by design, not policy. Technical limitations protect our users 
+            more reliably than legal promises ever could.
           </p>
           <p className="text-brand-muted leading-relaxed">
-            We do not comply with requests from governments or corporations seeking to identify our users 
-            or access their scraped data. We have structured our systems so that we often cannot comply, 
-            even if compelled.
+            To governments and corporations seeking to identify our users or access their data: 
+            we are not interested in your requests. Our systems are built so that compliance is 
+            technically impossible in most cases—and we intend to keep it that way.
           </p>
         </Card>
       </Section>
