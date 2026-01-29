@@ -28,12 +28,6 @@ const footerLinks = {
   ],
 }
 
-const socialLinks = [
-  { name: 'TWITTER', url: 'https://twitter.com/hyprstrm', icon: 'X' },
-  { name: 'GITHUB', url: 'https://github.com/hyprstrm', icon: 'GH' },
-  { name: 'DISCORD', url: 'https://discord.gg/hyprstrm', icon: 'DC' },
-]
-
 export function Footer() {
   return (
     <footer className="border-t border-white/5 bg-brand-black">
@@ -48,19 +42,6 @@ export function Footer() {
             <p className="mt-4 text-sm text-brand-muted leading-relaxed">
               The Universal Social Media Data Extraction Engine.
             </p>
-            <div className="mt-6 flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded bg-brand-gray text-brand-muted hover:text-brand-accent hover:bg-brand-gray/80 transition-colors text-xs font-bold"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Product Links */}

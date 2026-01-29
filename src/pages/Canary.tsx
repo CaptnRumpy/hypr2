@@ -2,32 +2,47 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Section, Card } from '../components/ui'
 
-// Smooth continuous heartbeat line
-function HeartbeatLine() {
+// Pulse line that sweeps left to right
+function PulseLine() {
   return (
     <div className="relative w-full h-16 overflow-hidden">
+      {/* Static baseline */}
+      <div className="absolute inset-0 flex items-center">
+        <div className="w-full h-[2px] bg-green-500/20" />
+      </div>
+      
+      {/* Heartbeat pattern */}
       <svg 
-        className="absolute w-[200%] h-full animate-heartbeat-scroll" 
-        viewBox="0 0 800 60" 
+        className="absolute inset-0 w-full h-full" 
+        viewBox="0 0 400 60" 
         preserveAspectRatio="none"
       >
-        <defs>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgb(34, 197, 94)" stopOpacity="0.1" />
-            <stop offset="50%" stopColor="rgb(34, 197, 94)" stopOpacity="1" />
-            <stop offset="100%" stopColor="rgb(34, 197, 94)" stopOpacity="0.1" />
-          </linearGradient>
-        </defs>
-        {/* First heartbeat pattern */}
         <path
-          d="M0,30 L60,30 L80,30 L90,30 L100,10 L110,50 L120,20 L130,40 L140,30 L200,30 L260,30 L280,30 L290,30 L300,10 L310,50 L320,20 L330,40 L340,30 L400,30 L460,30 L480,30 L490,30 L500,10 L510,50 L520,20 L530,40 L540,30 L600,30 L660,30 L680,30 L690,30 L700,10 L710,50 L720,20 L730,40 L740,30 L800,30"
+          d="M0,30 L120,30 L140,30 L160,30 L180,8 L200,52 L220,20 L240,40 L260,30 L400,30"
           fill="none"
-          stroke="url(#lineGradient)"
+          stroke="rgba(34, 197, 94, 0.3)"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
+      
+      {/* Animated pulse sweep */}
+      <div className="absolute inset-0 flex items-center">
+        <div 
+          className="h-full w-32 animate-pulse-sweep"
+          style={{
+            background: 'linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.6) 50%, transparent 100%)',
+          }}
+        />
+      </div>
+      
+      {/* Glowing dot that follows the sweep */}
+      <div className="absolute inset-0 flex items-center">
+        <div 
+          className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_12px_4px_rgba(34,197,94,0.6)] animate-pulse-dot"
+        />
+      </div>
     </div>
   )
 }
@@ -111,14 +126,25 @@ export function Canary() {
 
   return (
     <>
-      {/* Add custom animation keyframes */}
+      {/* Custom animations */}
       <style>{`
-        @keyframes heartbeat-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+        @keyframes pulse-sweep {
+          0% { transform: translateX(-100%); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateX(1200%); opacity: 0; }
         }
-        .animate-heartbeat-scroll {
-          animation: heartbeat-scroll 4s linear infinite;
+        @keyframes pulse-dot {
+          0% { transform: translateX(-8px); opacity: 0; }
+          5% { opacity: 1; }
+          95% { opacity: 1; }
+          100% { transform: translateX(calc(100vw - 8px)); opacity: 0; }
+        }
+        .animate-pulse-sweep {
+          animation: pulse-sweep 3s ease-in-out infinite;
+        }
+        .animate-pulse-dot {
+          animation: pulse-dot 3s ease-in-out infinite;
         }
       `}</style>
 
@@ -210,9 +236,9 @@ export function Canary() {
                   </div>
                 </div>
 
-                {/* Heartbeat line */}
-                <div className="mt-8 opacity-60">
-                  <HeartbeatLine />
+                {/* Pulse line */}
+                <div className="mt-8">
+                  <PulseLine />
                 </div>
               </div>
             </div>
@@ -594,11 +620,11 @@ export function Canary() {
             </p>
             
             <div className="inline-block p-8 rounded-2xl bg-black/40 border border-white/5">
-              <p className="text-2xl italic text-white/80 mb-3">
-                "Fiat justitia ruat caelum"
+              <p className="text-2xl text-white/80 mb-3 font-mono">
+                "Privacy is not an option, and it shouldn't be the price we accept for just getting on the Internet."
               </p>
               <p className="text-sm text-brand-accent">
-                Let justice be done, though the heavens fall.
+                — Gary Kovacs, Former CEO of Mozilla
               </p>
             </div>
           </motion.div>
