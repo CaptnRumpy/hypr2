@@ -156,13 +156,12 @@ export function About() {
       <Section grid>
         <SectionHeader
           badge="THE TEAM"
-          title="GHOSTS IN THE MACHINE"
+          title="WHO WE ARE"
         />
         <Card hover={false} className="max-w-3xl mx-auto text-center">
           <p className="text-brand-muted leading-relaxed">
-            We are a distributed, pseudonymous team of engineers, data scientists, and former intelligence 
-            professionals. We don't do press tours. We don't have a headquarters. We build infrastructure 
-            that works, and we let the results speak for themselves.
+            We're a remote-first team of engineers and data specialists who value privacy—both yours and ours. 
+            We focus on building reliable infrastructure and let our work speak for itself.
           </p>
           <p className="text-brand-accent mt-6 font-semibold">
             hyprstrm@pm.me
