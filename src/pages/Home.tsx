@@ -209,6 +209,93 @@ export function Home() {
         </div>
       </Section>
 
+      {/* Dashboard Preview */}
+      <Section grid>
+        <SectionHeader
+          badge="NO-CODE DASHBOARD"
+          title="CONFIGURE VISUALLY, STREAM INSTANTLY"
+          description="Don't want to write code? Use our intuitive dashboard to set up data streams in minutes."
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative max-w-5xl mx-auto"
+        >
+          {/* Glow effect */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-brand-accent/10 via-brand-accent/5 to-brand-accent/10 rounded-2xl blur-2xl" />
+          
+          {/* Dashboard mockup */}
+          <div className="relative bg-black/80 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden">
+            {/* Window chrome */}
+            <div className="flex items-center justify-between px-4 py-3 bg-white/[0.02] border-b border-white/5">
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                  <div className="w-3 h-3 rounded-full bg-[#27ca40]" />
+                </div>
+                <span className="ml-3 text-xs text-brand-muted font-mono">dashboard.hyprstrm.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 text-xs bg-green-500/10 text-green-500 rounded border border-green-500/20">LIVE</span>
+              </div>
+            </div>
+            
+            {/* Dashboard content */}
+            <div className="p-6">
+              <div className="grid md:grid-cols-3 gap-4 mb-6">
+                {/* Stats */}
+                <div className="bg-white/[0.02] rounded-lg p-4 border border-white/5">
+                  <div className="text-xs text-brand-muted mb-1">ACTIVE STREAMS</div>
+                  <div className="text-2xl font-bold text-white">12</div>
+                </div>
+                <div className="bg-white/[0.02] rounded-lg p-4 border border-white/5">
+                  <div className="text-xs text-brand-muted mb-1">ITEMS TODAY</div>
+                  <div className="text-2xl font-bold text-brand-accent">24,847</div>
+                </div>
+                <div className="bg-white/[0.02] rounded-lg p-4 border border-white/5">
+                  <div className="text-xs text-brand-muted mb-1">TOKENS REMAINING</div>
+                  <div className="text-2xl font-bold text-white">2.4M</div>
+                </div>
+              </div>
+              
+              {/* Stream list */}
+              <div className="bg-white/[0.02] rounded-lg border border-white/5 overflow-hidden">
+                <div className="px-4 py-2 bg-white/[0.02] border-b border-white/5 text-xs text-brand-muted">
+                  ACTIVE DATA STREAMS
+                </div>
+                <div className="divide-y divide-white/5">
+                  {[
+                    { platform: 'TikTok', query: 'fashion_de', items: '8,432', status: 'streaming' },
+                    { platform: 'Reddit', query: 'r/cryptocurrency', items: '12,201', status: 'streaming' },
+                    { platform: 'YouTube', query: 'tech_reviews', items: '4,214', status: 'streaming' },
+                  ].map((stream) => (
+                    <div key={stream.query} className="flex items-center justify-between px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        <div>
+                          <div className="text-sm text-white">{stream.platform}</div>
+                          <div className="text-xs text-brand-muted">{stream.query}</div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-sm text-brand-accent">{stream.items}</div>
+                        <div className="text-xs text-brand-muted">items</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+        <p className="text-center text-sm text-brand-muted mt-6">
+          Create streams, monitor usage, and download data—all from your browser.
+        </p>
+      </Section>
+
       {/* AI/ML Section */}
       <Section>
         <SectionHeader

@@ -141,6 +141,7 @@ const tokenPacks = [
     tokens: '50,000',
     perToken: '$0.00038',
     capacity: '~1.6 Hours of Video',
+    tierNote: null,
   },
   {
     name: 'Growth Pack',
@@ -148,6 +149,15 @@ const tokenPacks = [
     tokens: '500,000',
     perToken: '$0.00016',
     capacity: '~16 Hours of Video',
+    tierNote: null,
+  },
+  {
+    name: 'Boost Pack',
+    price: '$149',
+    tokens: '1,000,000',
+    perToken: '$0.00015',
+    capacity: '~33 Hours of Video',
+    tierNote: null,
   },
   {
     name: 'Scale Pack',
@@ -155,6 +165,15 @@ const tokenPacks = [
     tokens: '3,000,000',
     perToken: '$0.00010',
     capacity: '~100 Hours of Video',
+    tierNote: 'Business+',
+  },
+  {
+    name: 'Volume Pack',
+    price: '$499',
+    tokens: '6,000,000',
+    perToken: '$0.00008',
+    capacity: '~200 Hours of Video',
+    tierNote: 'Business+',
   },
   {
     name: 'Enterprise Pack',
@@ -162,6 +181,7 @@ const tokenPacks = [
     tokens: '15,000,000',
     perToken: '$0.00006',
     capacity: '~500 Hours of Video',
+    tierNote: 'Enterprise',
   },
 ]
 
@@ -268,13 +288,13 @@ export function Tokenomics() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <Card hover={false}>
+              <Card hover={false} className="h-full">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-lg font-semibold text-brand-text">{cost.name}</h3>
-                  <div className="text-right">
-                    <span className="text-brand-accent font-bold">{cost.cost}</span>
-                    <span className="text-brand-muted text-sm"> {cost.unit}</span>
-                  </div>
+                </div>
+                <div className="mb-3">
+                  <span className="text-2xl font-bold text-brand-accent">{cost.cost}</span>
+                  <span className="text-brand-muted text-sm"> {cost.unit}</span>
                 </div>
                 <p className="text-sm text-brand-muted">{cost.description}</p>
               </Card>
@@ -366,7 +386,7 @@ export function Tokenomics() {
           title="TOKEN PACKS"
           description="One-time purchases to add capacity. Tokens never expire."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tokenPacks.map((pack, index) => (
             <motion.div
               key={pack.name}
@@ -375,7 +395,12 @@ export function Tokenomics() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <Card className="text-center">
+              <Card className="text-center relative">
+                {pack.tierNote && (
+                  <span className="absolute -top-2 right-4 px-2 py-0.5 text-xs bg-brand-accent/20 text-brand-accent rounded border border-brand-accent/30">
+                    {pack.tierNote}
+                  </span>
+                )}
                 <h3 className="text-lg font-semibold text-brand-text mb-2">{pack.name}</h3>
                 <div className="text-3xl font-bold text-brand-accent mb-1">{pack.price}</div>
                 <div className="text-brand-text font-semibold mb-4">{pack.tokens} tokens</div>
@@ -387,6 +412,39 @@ export function Tokenomics() {
             </motion.div>
           ))}
         </div>
+        
+        {/* Tier Pricing Note */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="mt-8 max-w-3xl mx-auto"
+        >
+          <Card hover={false} className="border-white/10">
+            <h4 className="text-white font-bold mb-3 flex items-center gap-2">
+              <svg className="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Tier-Based Pack Pricing
+            </h4>
+            <div className="space-y-3 text-sm text-brand-muted">
+              <p>
+                <strong className="text-white">Scale Pack & Volume Pack:</strong> Discounted per-token rates apply only to 
+                <span className="text-brand-accent"> Business</span> and <span className="text-brand-accent">Enterprise</span> subscribers. 
+                Pro users purchasing these packs pay the Growth Pack rate ($0.00016/token).
+              </p>
+              <p>
+                <strong className="text-white">Enterprise Pack:</strong> Maximum discount available exclusively to 
+                <span className="text-brand-accent"> Enterprise</span> subscribers. Business users pay the Scale Pack rate ($0.00010/token). 
+                Pro users pay the Growth Pack rate ($0.00016/token).
+              </p>
+              <p className="text-xs text-brand-muted/70 pt-2 border-t border-white/5">
+                This ensures fair pricing aligned with your subscription commitment. Higher tiers unlock better rates on bulk purchases.
+              </p>
+            </div>
+          </Card>
+        </motion.div>
       </Section>
 
       {/* FAQ */}
@@ -416,6 +474,10 @@ export function Tokenomics() {
             {
               q: 'What counts as "video duration"?',
               a: 'We charge based on the actual video length. A 45-second TikTok would cost the base rate (0-30s) plus one overage increment (30-60s).',
+            },
+            {
+              q: 'Why do pack prices vary by subscription tier?',
+              a: 'Bulk token packs reward committed subscribers. Higher subscription tiers unlock lower per-token rates on Scale, Volume, and Enterprise packs.',
             },
           ].map((faq) => (
             <Card key={faq.q} hover={false}>
