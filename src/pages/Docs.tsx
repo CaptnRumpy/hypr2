@@ -18,31 +18,30 @@ export function Docs() {
           </h1>
           
           {/* Operating Status */}
-          <Card hover={false} className="mb-8 text-left border-brand-accent/30">
+          <Card hover={false} className="mb-8 text-left border-green-500/20">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500 flex-shrink-0">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white mb-2">We Are Live</h3>
+                <h3 className="text-lg font-bold text-white mb-2">Currently in Private Beta</h3>
                 <p className="text-brand-muted text-sm leading-relaxed mb-3">
-                  HYPRSTRM is currently operational and serving enterprise clients. Our infrastructure is 
-                  production-ready for <strong className="text-white">custom solutions</strong> requiring 
-                  high-volume data extraction (100M+ items/month).
+                  We're actively working with select partners on high-volume data pipelines. 
+                  If you have enterprise-scale needs (100M+ items/month), we'd love to hear from you.
                 </p>
                 <p className="text-brand-muted text-sm leading-relaxed">
-                  Public API access and self-serve documentation are being finalized. In the meantime, 
-                  we work directly with clients to build tailored data pipelines.
+                  Public API access is coming soon. In the meantime, reach out and we'll see how we can help 
+                  with your specific use case.
                 </p>
               </div>
             </div>
           </Card>
 
           <p className="text-lg text-brand-muted mb-8 leading-relaxed">
-            Our comprehensive API documentation for self-serve access is being finalized. 
-            Enterprise clients can request immediate access to our infrastructure.
+            We're putting the finishing touches on our self-serve documentation. 
+            Want early access? Let's talk.
           </p>
 
           {/* Countdown Timer */}
@@ -68,41 +67,53 @@ export function Docs() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="mailto:hyprstrm@pm.me?subject=Custom%20Solution%20Inquiry" size="lg">
-              Request Custom Solution
+            <Button href="mailto:hyprstrm@pm.me?subject=API%20Access%20Inquiry" size="lg">
+              Get in Touch
             </Button>
             <Button to="/" variant="secondary" size="lg">
               Back to Home
             </Button>
           </div>
 
-          {/* Custom Solution Info */}
+          {/* What We Can Help With */}
           <div className="mt-12 p-6 rounded-xl bg-black/40 border border-white/5 text-left">
-            <h4 className="text-white font-bold mb-3">Custom Solutions Include:</h4>
+            <h4 className="text-white font-bold mb-3">What We Can Help With:</h4>
             <ul className="grid md:grid-cols-2 gap-3 text-sm text-brand-muted">
               <li className="flex items-center gap-2">
-                <span className="text-brand-accent">→</span>
-                Dedicated infrastructure & priority GPU access
+                <svg className="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Dedicated infrastructure for your workload
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-brand-accent">→</span>
+                <svg className="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
                 Custom data schemas & delivery formats
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-brand-accent">→</span>
-                High-volume pricing (100M+ items/month)
+                <svg className="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Volume-based pricing for large datasets
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-brand-accent">→</span>
-                Direct engineering support & SLAs
+                <svg className="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Direct engineering support
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-brand-accent">→</span>
+                <svg className="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
                 White-label & on-premise options
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-brand-accent">→</span>
-                Custom AI/ML model integration
+                <svg className="w-4 h-4 text-brand-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                AI/ML pipeline integration
               </li>
             </ul>
           </div>

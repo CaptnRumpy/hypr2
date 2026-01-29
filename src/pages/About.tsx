@@ -18,22 +18,38 @@ const principles = [
 
 const trustFeatures = [
   {
-    icon: '🔐',
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+      </svg>
+    ),
     title: 'No-KYC Onboarding',
     description: 'Use our service with nothing but an email and a crypto wallet.',
   },
   {
-    icon: '💳',
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+      </svg>
+    ),
     title: 'Anonymous Payments',
     description: 'We accept Monero, Bitcoin, and other privacy-preserving cryptocurrencies.',
   },
   {
-    icon: '📝',
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
     title: 'Ephemeral Logs',
     description: 'Request logs are automatically purged after 72 hours.',
   },
   {
-    icon: '🛡️',
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
     title: 'Zero User Data Storage',
     description: 'The data you scrape is streamed directly to you. We don\'t keep copies.',
   },
@@ -103,7 +119,9 @@ export function About() {
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <Card className="flex gap-4">
-                <span className="text-3xl">{feature.icon}</span>
+                <div className="w-12 h-12 rounded-lg bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent flex-shrink-0">
+                  {feature.icon}
+                </div>
                 <div>
                   <h3 className="text-lg font-semibold text-brand-text mb-1">{feature.title}</h3>
                   <p className="text-sm text-brand-muted">{feature.description}</p>
