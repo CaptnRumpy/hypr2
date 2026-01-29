@@ -1,150 +1,250 @@
 import { motion } from 'framer-motion'
-import { Section, SectionHeader, Card, Button } from '../components/ui'
-
-const caseStudies = [
-  {
-    tag: 'FINANCE',
-    title: 'The Quantitative Hedge Fund',
-    subtitle: 'Real-time social sentiment for earnings prediction',
-    challenge: 'A quantitative hedge fund needed to incorporate real-time social sentiment into their earnings prediction models. Traditional financial data providers were too slow, and their in-house scraping attempts were constantly blocked.',
-    solution: 'We deployed dedicated workers for X (cashtags), Reddit (r/wallstreetbets, r/stocks), and YouTube (financial influencer channels). The fund receives a unified, deduplicated stream of posts mentioning their target tickers, enriched with our sentiment scores.',
-    results: [
-      'Sub-5-minute latency on breaking social chatter',
-      '15% improvement in short-term earnings surprise prediction accuracy',
-      'Eliminated a 3-person internal scraping team',
-    ],
-  },
-  {
-    tag: 'AI / ML',
-    title: 'The LLM Research Lab',
-    subtitle: 'Training data for a multilingual conversational AI',
-    challenge: 'A well-funded AI research lab was training a next-generation multilingual LLM. They needed billions of tokens of diverse, authentic human conversation that wasn\'t already overrepresented in existing datasets like Common Crawl.',
-    solution: 'We provided continuous, high-volume streams from Reddit (non-English subreddits), TikTok (comment sections in 15 languages), and YouTube (community posts). All data was delivered with our ASR transcriptions for video content and language-tagged for easy filtering.',
-    results: [
-      'Ingested 50 billion tokens of novel conversational data over 6 months',
-      'Significantly improved benchmark scores on low-resource languages',
-      'Reduced data acquisition costs by 70% compared to their previous vendor',
-    ],
-  },
-  {
-    tag: 'MARKETING',
-    title: 'The Influencer Marketing Agency',
-    subtitle: 'Vetting creators at scale for brand safety',
-    challenge: 'A top-10 global influencer marketing agency needed to vet thousands of potential creators each month. Manual review was slow and expensive, and they had no good way to analyze the actual content of videos at scale.',
-    solution: 'We built a custom pipeline combining Instagram, TikTok, and YouTube profile scraping with our full OCR/ASR stack. The agency receives a daily report of flagged creators whose content (spoken or on-screen) contains brand-unsafe keywords.',
-    results: [
-      'Reduced creator vetting time from 2 weeks to 48 hours',
-      'Caught 3 major brand-safety violations that manual review missed',
-      '40% reduction in influencer fraud (fake followers, engagement pods)',
-    ],
-  },
-  {
-    tag: 'CONSULTING',
-    title: 'The Geopolitical Risk Consultancy',
-    subtitle: 'Open-source intelligence for crisis detection',
-    challenge: 'A boutique risk consultancy advising Fortune 500 clients on geopolitical risk needed a real-time feed of emerging crises from social media, but lacked the technical infrastructure to build one.',
-    solution: 'We provided a multi-platform monitoring stream focused on specific geographic regions and conflict-related keywords across X, Telegram, and TikTok. The feed includes geotagged posts when available and is filtered for high-engagement content to reduce noise.',
-    results: [
-      'Identified the onset of a regional conflict 4 hours before major news outlets',
-      'Reduced analyst workload by 60% through intelligent pre-filtering',
-      'Became a key differentiator in their client pitches',
-    ],
-  },
-]
+import { Section, Card, Button } from '../components/ui'
 
 export function CaseStudies() {
   return (
     <>
       {/* Hero */}
-      <Section grid className="pt-32">
-        <div className="text-center max-w-3xl mx-auto">
+      <Section grid className="pt-32 pb-20">
+        <div className="text-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-2 mb-6 text-xs tracking-widest text-brand-accent border border-brand-accent/30 rounded-full">
-              CASE STUDIES
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-text mb-6">
-              THE HALL OF <span className="gradient-text">MIRRORS</span>
+            <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
+              THE HALL OF <span className="text-brand-accent glow-text">MIRRORS</span>
             </h1>
-            <p className="text-lg text-brand-muted leading-relaxed">
-              What People Are Building in the Dark. We don't reveal our clients. 
-              But we can show you what's possible.
+            <p className="text-xl text-brand-muted">What People Are Building in the Dark.</p>
+            <p className="text-brand-muted mt-6 max-w-2xl mx-auto">
+              We generally operate in the shadows. However, for specific high-volume partners, we build bespoke infrastructure. 
+              Below are four anonymized case studies derived from Custom Enterprise Solutions we engineered for clients with explicit consent.
             </p>
           </motion.div>
         </div>
       </Section>
 
-      {/* Case Studies */}
-      <Section>
-        <div className="space-y-12">
-          {caseStudies.map((study, index) => (
-            <motion.div
-              key={study.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card hover={false} className="p-8 md:p-12">
-                <div className="grid md:grid-cols-3 gap-8">
-                  {/* Header */}
-                  <div className="md:col-span-1">
-                    <span className="inline-block px-3 py-1 mb-4 text-xs tracking-widest text-brand-accent border border-brand-accent/30 rounded">
-                      {study.tag}
-                    </span>
-                    <h3 className="text-2xl font-bold text-brand-text mb-2">{study.title}</h3>
-                    <p className="text-brand-muted">{study.subtitle}</p>
-                  </div>
+      {/* Case Study 1 */}
+      <Section className="bg-brand-dark border-y border-white/5">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="mb-8">
+            <span className="text-brand-accent font-bold text-sm uppercase tracking-wider">Case Study</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">The "Earnings Whisper" Fund</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-black p-4 border border-white/10">
+              <div className="text-xs text-brand-muted uppercase mb-1">The Client</div>
+              <div className="text-white">A Consumer Discretionary Hedge Fund (Long/Short Equity).</div>
+            </div>
+            <div className="bg-black p-4 border border-white/10">
+              <div className="text-xs text-brand-muted uppercase mb-1">The Engagement</div>
+              <div className="text-white">Custom Data Pipeline (Enterprise).</div>
+            </div>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Challenge</h3>
+            <p className="text-brand-muted">Traditional analyst reports on retail brands (e.g., Lululemon, Stanley, Nike) lag by weeks. The fund needed to predict quarterly earnings surprises based on real-time consumer excitement, not just historical sales data.</p>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Custom Solution</h3>
+            <p className="text-brand-muted mb-4">We deployed a dedicated scraping cluster monitoring "Haul" and "Unboxing" hashtags for 50 major retail tickers on TikTok and YouTube Shorts.</p>
+            <p className="text-brand-muted mb-4"><strong className="text-white">The Signal:</strong> We engineered a custom metric: "Velocity of Enthusiasm."</p>
+            <ul className="space-y-2 text-brand-muted">
+              <li><strong className="text-white">ASR (Audio):</strong> Captures sentiment keywords like "obsessed," "dupe," or "returning this" in the spoken review.</li>
+              <li><strong className="text-white">Video OCR:</strong> Detects the visible colorways and product variants in the video frame to estimate inventory sell-through rates before the company reports them.</li>
+            </ul>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Execution</h3>
+            <p className="text-brand-muted">If negative sentiment for a flagship product spikes 2 weeks before earnings, they (for example) short the stock.</p>
+          </div>
+          
+          <Card hover={false} className="border-white/10">
+            <h3 className="text-lg font-bold text-white mb-4">The Reality:</h3>
+            <p className="text-brand-muted italic">"We saw the 'dupe' trend killing a major activewear brand's margins three weeks before Wall Street did. The analysts were looking at shipping manifests; we were listening to the customers' actual voices."</p>
+          </Card>
+        </motion.div>
+      </Section>
 
-                  {/* Content */}
-                  <div className="md:col-span-2 space-y-6">
-                    <div>
-                      <h4 className="text-sm tracking-widest text-brand-muted mb-2">THE CHALLENGE</h4>
-                      <p className="text-brand-text">{study.challenge}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-sm tracking-widest text-brand-muted mb-2">OUR SOLUTION</h4>
-                      <p className="text-brand-text">{study.solution}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-sm tracking-widest text-brand-muted mb-2">THE RESULTS</h4>
-                      <ul className="space-y-2">
-                        {study.results.map((result) => (
-                          <li key={result} className="flex items-start gap-2 text-brand-text">
-                            <span className="text-brand-accent">→</span>
-                            {result}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+      {/* Case Study 2 */}
+      <Section>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="mb-8">
+            <span className="text-brand-accent font-bold text-sm uppercase tracking-wider">Case Study</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">The "Living" Language Model</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-black p-4 border border-white/10">
+              <div className="text-xs text-brand-muted uppercase mb-1">The Client</div>
+              <div className="text-white">An LLM Foundation Model Lab.</div>
+            </div>
+            <div className="bg-black p-4 border border-white/10">
+              <div className="text-xs text-brand-muted uppercase mb-1">The Engagement</div>
+              <div className="text-white">Dedicated GPU Cluster & Whitelabel Feed.</div>
+            </div>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Challenge</h3>
+            <p className="text-brand-muted">Static LLMs sound like encyclopedias, not people. They fail to understand Gen Z slang, new idioms, or viral context (e.g., "skibidi," "rizz") until months after the trend is dead.</p>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Custom Solution</h3>
+            <p className="text-brand-muted mb-4">We architected a Continuous Fine-Tuning Pipeline (CFT) that ingests 10,000 hours of social dialogue daily.</p>
+            <p className="text-brand-muted mb-4"><strong className="text-white">Data Source:</strong> Comments and short-form video transcripts from TikTok and X (high-velocity conversational text).</p>
+            <div className="bg-black p-4 border border-white/10">
+              <p className="text-sm text-brand-muted mb-2"><strong className="text-white">The Pipeline:</strong></p>
+              <p className="text-sm text-brand-muted">Step 1: Hyprstrm scrapes trending threads and transcribes new viral videos.</p>
+              <p className="text-sm text-brand-muted">Step 2: The data is sanitized (PII removed) and formatted into (Instruction, Response) pairs.</p>
+              <p className="text-sm text-brand-muted">Step 3: The "Nightly Build" of their model is RLHF-tuned on this fresh dataset.</p>
+            </div>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Result</h3>
+            <p className="text-brand-muted">Their chatbot understands a viral meme reference ~6 hours after it starts trending, whereas competitors take weeks.</p>
+          </div>
+          
+          <Card hover={false} className="border-white/10">
+            <h3 className="text-lg font-bold text-white mb-4">The Reality:</h3>
+            <p className="text-brand-muted italic">"Language evolves faster than arXiv papers. Hyprstrm allows our model to 'touch grass' digitally. If a new slang term drops on Tuesday, our model speaks it fluently by Wednesday morning."</p>
+          </Card>
+        </motion.div>
+      </Section>
+
+      {/* Case Study 3 */}
+      <Section className="bg-brand-dark border-y border-white/5">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="mb-8">
+            <span className="text-brand-accent font-bold text-sm uppercase tracking-wider">Case Study</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">The "Dark Social" ROI Auditor</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-black p-4 border border-white/10">
+              <div className="text-xs text-brand-muted uppercase mb-1">The Client</div>
+              <div className="text-white">A Global Influencer Marketing Agency.</div>
+            </div>
+            <div className="bg-black p-4 border border-white/10">
+              <div className="text-xs text-brand-muted uppercase mb-1">The Engagement</div>
+              <div className="text-white">Custom Whitelabel Dashboard.</div>
+            </div>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Challenge</h3>
+            <p className="text-brand-muted">Brands pay influencers for 60 seconds of product placement, but often get 10 seconds of blurry footage. Manual verification of 5,000 videos a month was impossible.</p>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Custom Solution</h3>
+            <p className="text-brand-muted mb-4">We built an automated "Proof of Performance" engine integrated into their internal billing system.</p>
+            <p className="text-brand-muted mb-4"><strong className="text-white">Visual Audit:</strong> For every sponsored video uploaded, Hyprstrm scans the frames.</p>
+            <div className="bg-black p-4 border border-white/10 mb-4">
+              <p className="text-sm text-brand-muted mb-2"><strong className="text-white">The Metric:</strong></p>
+              <p className="text-sm text-brand-muted"><strong className="text-white">Logo Presence:</strong> How many seconds was the brand logo clearly visible? (OCR).</p>
+              <p className="text-sm text-brand-muted"><strong className="text-white">Audio Mention:</strong> Did they say the required legal disclaimer? (ASR).</p>
+            </div>
+            <p className="text-brand-muted"><strong className="text-white">The Clawback:</strong> If an influencer agreed to 60 seconds of exposure but only provided 15 seconds, the agency automatically adjusts the payout.</p>
+          </div>
+          
+          <Card hover={false} className="border-white/10">
+            <h3 className="text-lg font-bold text-white mb-4">The Reality:</h3>
+            <p className="text-brand-muted italic">"We recovered $400k in 'wasted' ad spend in Q1 alone. We don't argue with influencers anymore; we just show them the timestamped logs where their camera didn't focus on the product."</p>
+          </Card>
+        </motion.div>
+      </Section>
+
+      {/* Case Study 4 */}
+      <Section>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="mb-8">
+            <span className="text-brand-accent font-bold text-sm uppercase tracking-wider">Case Study</span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2">The Breaking News "Seismograph"</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-black p-4 border border-white/10">
+              <div className="text-xs text-brand-muted uppercase mb-1">The Client</div>
+              <div className="text-white">A Risk Consultancy.</div>
+            </div>
+            <div className="bg-black p-4 border border-white/10">
+              <div className="text-xs text-brand-muted uppercase mb-1">The Engagement</div>
+              <div className="text-white">On-Premise Deployment (Private VPC).</div>
+            </div>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Challenge</h3>
+            <p className="text-brand-muted">Mainstream news (CNN/BBC) is 20-30 minutes slower than social media during crises (active shooters, fires, earthquakes). Their corporate security clients need instant alerts.</p>
+          </div>
+          
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-brand-accent mb-4">The Custom Solution</h3>
+            <p className="text-brand-muted mb-4">We deployed a "Panic Detection" engine covering 50 major cities, hosted directly on the client's secure cloud.</p>
+            <p className="text-brand-muted mb-4"><strong className="text-white">The Trigger:</strong> We don't look for keywords like "Fire" (too much noise). We look for "Cluster Density."</p>
+            <div className="bg-black p-4 border border-white/10">
+              <p className="text-sm text-brand-muted mb-2"><strong className="text-white">Triangulation:</strong> If 50+ videos are uploaded from a 1km radius within 5 minutes, and the ASR detects high-pitch audio frequencies (screaming, sirens) or keywords like "run," "smoke," or "police," an alert is triggered.</p>
+              <p className="text-sm text-brand-muted"><strong className="text-white">Validation:</strong> The system pushes the top 3 videos to a human analyst dashboard instantly for verification before alerting clients.</p>
+            </div>
+          </div>
+          
+          <Card hover={false} className="border-white/10">
+            <h3 className="text-lg font-bold text-white mb-4">The Reality:</h3>
+            <p className="text-brand-muted italic">"We detected a warehouse fire in Shenzhen 18 minutes before Reuters. For our clients with supply chain exposure, that's worth millions."</p>
+          </Card>
+        </motion.div>
       </Section>
 
       {/* CTA */}
-      <Section grid className="text-center">
+      <Section className="bg-brand-dark border-y border-white/5 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold text-brand-text mb-4">
-            READY TO BUILD SOMETHING?
-          </h2>
-          <p className="text-brand-muted mb-8 max-w-xl mx-auto">
-            Your use case might be the next entry in our hall. Let's talk.
-          </p>
-          <Button href="mailto:hyprstrm@pm.me" size="lg">
-            Contact Us
-          </Button>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Build Your Own Custom Solution</h2>
+          <p className="text-brand-muted mb-12">We provide the raw intelligence. The strategy is up to you.</p>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button href="mailto:hyprstrm@pm.me" size="lg">
+              hyprstrm@pm.me
+            </Button>
+            <Button to="/docs" variant="secondary" size="lg">
+              Read the API Docs
+            </Button>
+          </div>
         </motion.div>
       </Section>
     </>
