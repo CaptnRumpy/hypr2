@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Tokenomics | HYPRSTRM - Transparent Token Economy</title>
+    <meta name="description" content="HYPRSTRM Pricing & Tokenomics - Fair, transparent prepaid token model. Free tier with 5,000 tokens. Pro, Business, and Enterprise plans. 30-50% below market rates.">
+    <meta name="keywords" content="HYPRSTRM pricing, API pricing, token economy, scraping costs, OCR pricing, ASR pricing, data extraction pricing, enterprise API">
+    <meta name="author" content="HYPRSTRM">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hyprstrm.com/tokenomics.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hyprstrm.com/tokenomics.html">
+    <meta property="og:title" content="Pricing & Tokenomics | HYPRSTRM">
+    <meta property="og:description" content="Fair, transparent prepaid token model. Free tier available. 30-50% below market rates for enterprise-grade AI analysis.">
+    <meta property="og:image" content="https://hyprstrm.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pricing & Tokenomics | HYPRSTRM">
+    <meta name="twitter:description" content="Fair, transparent prepaid token model. Free tier available.">
+
+    <!-- Structured Data for Pricing -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "HYPRSTRM API",
+        "description": "Social Media Data Extraction API with OCR, ASR, and AI enrichment",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Free Tier",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            {
+                "@type": "Offer",
+                "name": "Pro Tier",
+                "price": "79",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1M"
+            },
+            {
+                "@type": "Offer",
+                "name": "Business Tier",
+                "price": "299",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1M"
+            },
+            {
+                "@type": "Offer",
+                "name": "Enterprise Tier",
+                "price": "899",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1M"
+            }
+        ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"Geist Mono"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            dark: '#0f0f0f',
+                            gray: '#1f1f1f',
+                            accent: '#ff4d00',
+                            accentHover: '#ff6b2b',
+                            text: '#e5e5e5',
+                            muted: '#888888'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #e5e5e5; }
+        .grid-bg { 
+            background-image: linear-gradient(to right, #1f1f1f 1px, transparent 1px), linear-gradient(to bottom, #1f1f1f 1px, transparent 1px);
+            background-size: 40px 40px; 
+            mask-image: linear-gradient(to bottom, transparent, 10%, black, 90%, transparent); 
+        }
+        .glow-text { text-shadow: 0 0 20px rgba(255, 77, 0, 0.3); }
+        .glass-card { background: rgba(20, 20, 20, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="font-mono antialiased overflow-x-hidden selection:bg-brand-accent selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-brand-accent rounded-sm animate-pulse"></div>
+                    <span class="text-xl font-bold tracking-tighter">HYPRSTRM</span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="flex items-baseline space-x-8 text-sm">
+                        <a href="about.html" class="text-brand-muted hover:text-brand-accent transition">ABOUT US</a>
+                        <a href="canary.html" class="text-brand-muted hover:text-brand-accent transition">CANARY</a>
+                        <a href="docs.html" class="text-brand-muted hover:text-brand-accent transition">DOCS</a>
+                        <a href="tokenomics.html" class="text-brand-accent">TOKENOMICS</a>
+                    </div>
+                </div>
+                <a href="docs.html" class="px-4 py-2 text-xs font-bold border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-black transition uppercase">
+                    Get API Keys
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
+        <div class="absolute inset-0 grid-bg opacity-20 z-0"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6">
+                THE HYPRSTRM <span class="text-brand-accent glow-text">TOKEN ECONOMY</span>
+            </h1>
+            <p class="text-xl text-brand-muted">Fair, Transparent, and Built for Scale.</p>
+            <p class="text-brand-muted mt-6 max-w-2xl mx-auto">At Hyprstrm, we reject opaque "API Call" pricing. Instead, we operate on a transparent Prepaid Token Model. You purchase a compute budget (Tokens) and spend it exactly where you need it—whether that's monitoring thousands of creators or performing deep AI analysis on a single viral video.</p>
+        </div>
+    </section>
+
+    <!-- Advantage Section -->
+    <section class="py-12 bg-brand-dark border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-8 border border-brand-accent/30">
+                <h2 class="text-xl font-bold text-brand-accent mb-4">The Hyprstrm Advantage:</h2>
+                <p class="text-brand-muted">We own our entire GPU infrastructure. By running scraping, ASR (Speech-to-Text), and OCR (Visual Text) on our unified cluster, we eliminate third-party data transfer fees. This allows us to offer enterprise-grade AI analysis at <strong class="text-white">30–50% below market rates</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tiers Section -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">1. Choose Your Tier</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Free Tier -->
+                <div class="bg-black p-6 border border-white/10 hover:border-brand-accent/50 transition">
+                    <h3 class="text-lg font-bold text-white mb-2">FREE TIER</h3>
+                    <div class="text-3xl font-bold text-brand-accent mb-4">5,000 <span class="text-sm text-brand-muted">Tokens</span></div>
+                    <div class="text-sm text-brand-muted mb-4">
+                        <p class="mb-2"><span class="text-green-500">✓</span> Creator Ingestion (10/day)</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Data Delivery (10/item)</p>
+                        <p class="mb-2"><span class="text-red-500">🔒</span> Static OCR</p>
+                        <p class="mb-2"><span class="text-red-500">🔒</span> Video OCR</p>
+                        <p class="mb-2"><span class="text-red-500">🔒</span> ASR</p>
+                        <p class="mb-2"><span class="text-red-500">🔒</span> Topic Modeling</p>
+                        <p><span class="text-red-500">🔒</span> Embeddings</p>
+                    </div>
+                </div>
+
+                <!-- Pro Tier -->
+                <div class="bg-black p-6 border border-white/10 hover:border-brand-accent/50 transition">
+                    <h3 class="text-lg font-bold text-white mb-2">PRO TIER</h3>
+                    <div class="text-3xl font-bold text-brand-accent mb-4">500,000 <span class="text-sm text-brand-muted">Tokens</span></div>
+                    <div class="text-sm text-brand-muted mb-4">
+                        <p class="mb-2"><span class="text-green-500">✓</span> Creator Ingestion</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Data Delivery</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Static OCR (50/image)</p>
+                        <p class="mb-2"><span class="text-red-500">🔒</span> Video OCR</p>
+                        <p class="mb-2"><span class="text-red-500">🔒</span> ASR</p>
+                        <p class="mb-2"><span class="text-red-500">🔒</span> Topic Modeling</p>
+                        <p><span class="text-red-500">🔒</span> Embeddings</p>
+                    </div>
+                </div>
+
+                <!-- Business Tier -->
+                <div class="bg-black p-6 border border-brand-accent/50 hover:border-brand-accent transition relative">
+                    <div class="absolute -top-3 left-4 px-2 py-1 bg-brand-accent text-black text-xs font-bold">POPULAR</div>
+                    <h3 class="text-lg font-bold text-white mb-2">BUSINESS TIER</h3>
+                    <div class="text-3xl font-bold text-brand-accent mb-4">3,000,000 <span class="text-sm text-brand-muted">Tokens</span></div>
+                    <div class="text-sm text-brand-muted mb-4">
+                        <p class="mb-2"><span class="text-green-500">✓</span> Creator Ingestion</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Data Delivery</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Static OCR</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Video OCR (100+)</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> ASR (250+)</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Topic Modeling</p>
+                        <p><span class="text-red-500">🔒</span> Embeddings</p>
+                    </div>
+                </div>
+
+                <!-- Enterprise Tier -->
+                <div class="bg-black p-6 border border-white/10 hover:border-brand-accent/50 transition">
+                    <h3 class="text-lg font-bold text-white mb-2">ENTERPRISE TIER</h3>
+                    <div class="text-3xl font-bold text-brand-accent mb-4">15,000,000 <span class="text-sm text-brand-muted">Tokens</span></div>
+                    <div class="text-sm text-brand-muted mb-4">
+                        <p class="mb-2"><span class="text-green-500">✓</span> Creator Ingestion</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Data Delivery</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Static OCR</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Video OCR</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> ASR</p>
+                        <p class="mb-2"><span class="text-green-500">✓</span> Topic Modeling</p>
+                        <p><span class="text-green-500">✓</span> Embeddings (20/item)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-brand-muted text-center mt-8"><strong class="text-white">Need More Capacity?</strong> You can top up your balance instantly with Token Packs (starting at $19) without changing your monthly contract. Usage scales seamlessly.</p>
+        </div>
+    </section>
+
+    <!-- Token Consumption Section -->
+    <section class="py-24 bg-brand-dark border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-4">2. Token Consumption Rates ("The Menu")</h2>
+            <p class="text-brand-muted mb-12">How are tokens spent? Costs are broken down into Fixed Monitoring (keeping the connection open) and Variable Compute (analyzing content).</p>
+            
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-brand-accent mb-6">A. Fixed Monitoring Costs</h3>
+                <p class="text-brand-muted mb-6">Applied daily per target.</p>
+                <div class="space-y-4">
+                    <div class="bg-black p-4 border border-white/10 flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-white">Creator Ingestion</div>
+                            <div class="text-xs text-brand-muted">Maintains the "Watch" on a specific profile to detect new posts.</div>
+                        </div>
+                        <div class="text-brand-accent font-bold">10 Tokens / day</div>
+                    </div>
+                    <div class="bg-black p-4 border border-white/10 flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-white">Discovery Search</div>
+                            <div class="text-xs text-brand-muted">Usage of the Search API or Smart Query to find new influencers.</div>
+                        </div>
+                        <div class="text-brand-accent font-bold">50 Tokens / query</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-brand-accent mb-6">B. Variable Compute Costs (Per Item)</h3>
+                <p class="text-brand-muted mb-6">Applied only when content is found and processed.</p>
+                <div class="space-y-4">
+                    <div class="bg-black p-4 border border-white/10 flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-white">Data Delivery</div>
+                            <div class="text-xs text-brand-muted">Pushing the clean JSON to your Webhook or WebSocket.</div>
+                        </div>
+                        <div class="text-brand-accent font-bold">10 Tokens / item</div>
+                    </div>
+                    <div class="bg-black p-4 border border-white/10 flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-white">Embeddings</div>
+                            <div class="text-xs text-brand-muted">Generating E5 Vectors for semantic search (Enterprise Only).</div>
+                        </div>
+                        <div class="text-brand-accent font-bold">20 Tokens / item</div>
+                    </div>
+                    <div class="bg-black p-4 border border-white/10 flex justify-between items-center">
+                        <div>
+                            <div class="font-bold text-white">Static OCR</div>
+                            <div class="text-xs text-brand-muted">Extracting text from Instagram posts, LinkedIn slides, or X images.</div>
+                        </div>
+                        <div class="text-brand-accent font-bold">50 Tokens / image</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-bold text-brand-accent mb-6">C. High-Performance Video Analysis (Duration-Based)</h3>
+                <p class="text-brand-muted mb-6">Compute costs for Video ASR and OCR scale with video length.</p>
+                <div class="space-y-4">
+                    <div class="bg-black p-4 border border-white/10">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-white">Video OCR (Visual Text)</div>
+                            <div class="text-brand-accent font-bold">100 Tokens (First 0–30s)</div>
+                        </div>
+                        <div class="text-xs text-brand-muted">Overage: +100 Tokens (Per extra 30s)</div>
+                    </div>
+                    <div class="bg-black p-4 border border-white/10">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="font-bold text-white">Audio ASR (Speech-to-Text)</div>
+                            <div class="text-brand-accent font-bold">250 Tokens (First 0–30s)</div>
+                        </div>
+                        <div class="text-xs text-brand-muted">Overage: +250 Tokens (Per extra 30s)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Matrix Section -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-4">3. Feature & Consumption Matrix</h2>
+            <p class="text-brand-muted mb-12">A granular view of exactly what you can do at each tier level.</p>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-white/10">
+                            <th class="text-left py-4 px-4 text-brand-muted">Feature</th>
+                            <th class="text-left py-4 px-4 text-brand-muted">Token Cost</th>
+                            <th class="text-center py-4 px-4 text-brand-muted">FREE</th>
+                            <th class="text-center py-4 px-4 text-brand-muted">PRO</th>
+                            <th class="text-center py-4 px-4 text-brand-muted">BUSINESS</th>
+                            <th class="text-center py-4 px-4 text-brand-muted">ENTERPRISE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4 px-4 text-white">Creator Ingestion</td>
+                            <td class="py-4 px-4 text-brand-accent">10 Tokens / day</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4 px-4 text-white">Data Delivery</td>
+                            <td class="py-4 px-4 text-brand-accent">10 Tokens / item</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4 px-4 text-white">Static OCR (Images)</td>
+                            <td class="py-4 px-4 text-brand-accent">50 Tokens / image</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4 px-4 text-white">Video OCR (Visual Text)</td>
+                            <td class="py-4 px-4 text-brand-accent">100 Base + 100 per 30s</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4 px-4 text-white">ASR (Audio Transcription)</td>
+                            <td class="py-4 px-4 text-brand-accent">250 Base + 250 per 30s</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4 px-4 text-white">Topic Modeling</td>
+                            <td class="py-4 px-4 text-brand-accent">Included</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="py-4 px-4 text-white">Embeddings (Vector)</td>
+                            <td class="py-4 px-4 text-brand-accent">20 Tokens / item</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-red-500">🔒</td>
+                            <td class="py-4 px-4 text-center text-green-500">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section class="py-24 bg-brand-dark border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12">4. Real-World Calculation Examples</h2>
+            
+            <div class="space-y-8">
+                <div class="bg-black p-6 border border-white/10">
+                    <h3 class="text-lg font-bold text-brand-accent mb-4">Scenario 1: The Brand Monitor (Images)</h3>
+                    <p class="text-brand-muted mb-2"><strong class="text-white">Goal:</strong> Track 10 Competitors on Instagram. Analyze text in every image.</p>
+                    <p class="text-brand-muted mb-2"><strong class="text-white">Volume:</strong> 10 posts per day total.</p>
+                    <p class="text-brand-muted mb-4"><strong class="text-white">Tier Required:</strong> PRO</p>
+                    <div class="bg-brand-dark p-4 rounded">
+                        <p class="text-xs text-brand-muted mb-1"><strong>Daily Cost:</strong></p>
+                        <p class="text-xs text-brand-muted">Ingestion: 10 creators × 10 tokens = 100</p>
+                        <p class="text-xs text-brand-muted">OCR Analysis: 10 images × 50 tokens = 500</p>
+                        <p class="text-xs text-brand-muted">Delivery: 10 images × 10 tokens = 100</p>
+                        <p class="text-sm text-white mt-2"><strong>Monthly Total:</strong> ~21,000 Tokens (Leaves 479,000 tokens for growth).</p>
+                    </div>
+                </div>
+                
+                <div class="bg-black p-6 border border-white/10">
+                    <h3 class="text-lg font-bold text-brand-accent mb-4">Scenario 2: The Viral Trend Tracker (Short Video)</h3>
+                    <p class="text-brand-muted mb-2"><strong class="text-white">Goal:</strong> Monitor 100 TikTok Creators. Transcribe audio (ASR) to catch trends.</p>
+                    <p class="text-brand-muted mb-2"><strong class="text-white">Volume:</strong> 50 videos per day (avg length 15s).</p>
+                    <p class="text-brand-muted mb-4"><strong class="text-white">Tier Required:</strong> BUSINESS</p>
+                    <div class="bg-brand-dark p-4 rounded">
+                        <p class="text-xs text-brand-muted mb-1"><strong>Daily Cost:</strong></p>
+                        <p class="text-xs text-brand-muted">Ingestion: 100 creators × 10 tokens = 1,000</p>
+                        <p class="text-xs text-brand-muted">ASR Analysis: 50 videos × 250 tokens (Base) = 12,500</p>
+                        <p class="text-xs text-brand-muted">Delivery: 50 videos × 10 tokens = 500</p>
+                        <p class="text-sm text-white mt-2"><strong>Monthly Total:</strong> ~420,000 Tokens (Well within the 3M Business allowance).</p>
+                    </div>
+                </div>
+                
+                <div class="bg-black p-6 border border-white/10">
+                    <h3 class="text-lg font-bold text-brand-accent mb-4">Scenario 3: The Deep Analyst (Long Form)</h3>
+                    <p class="text-brand-muted mb-2"><strong class="text-white">Goal:</strong> Full transcriptions of 10-minute YouTube reviews.</p>
+                    <p class="text-brand-muted mb-4"><strong class="text-white">Tier Required:</strong> BUSINESS or ENTERPRISE</p>
+                    <div class="bg-brand-dark p-4 rounded">
+                        <p class="text-sm text-white"><strong>Cost Per Video:</strong> 5,010 Tokens (approx. $0.50 on Business Tier).</p>
+                        <p class="text-sm text-brand-accent mt-2"><strong>Comparison:</strong> Competitor APIs charge ~$1.50+ for scraping + transcription of a 10m video. Hyprstrm is ~66% cheaper.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center">5. Pricing</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="bg-black p-6 border border-white/10 text-center">
+                    <h3 class="text-lg font-bold text-white mb-2">FREE TIER</h3>
+                    <div class="text-4xl font-bold text-brand-accent mb-2">$0</div>
+                    <div class="text-sm text-brand-muted mb-4">Monthly Price</div>
+                    <div class="text-sm text-white">5,000 Tokens</div>
+                    <div class="text-xs text-brand-muted">(Trial Capacity)</div>
+                </div>
+                <div class="bg-black p-6 border border-white/10 text-center">
+                    <h3 class="text-lg font-bold text-white mb-2">PRO TIER</h3>
+                    <div class="text-4xl font-bold text-brand-accent mb-2">$79</div>
+                    <div class="text-sm text-brand-muted mb-4">Monthly Price</div>
+                    <div class="text-sm text-white">500,000 Tokens</div>
+                    <div class="text-xs text-brand-muted">(Standard Rate)</div>
+                </div>
+                <div class="bg-black p-6 border border-brand-accent/50 text-center relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-1 bg-brand-accent text-black text-xs font-bold">BEST VALUE</div>
+                    <h3 class="text-lg font-bold text-white mb-2">BUSINESS TIER</h3>
+                    <div class="text-4xl font-bold text-brand-accent mb-2">$299</div>
+                    <div class="text-sm text-brand-muted mb-4">Monthly Price</div>
+                    <div class="text-sm text-white">3,000,000 Tokens</div>
+                    <div class="text-xs text-brand-accent">(Save ~25%)</div>
+                </div>
+                <div class="bg-black p-6 border border-white/10 text-center">
+                    <h3 class="text-lg font-bold text-white mb-2">ENTERPRISE TIER</h3>
+                    <div class="text-4xl font-bold text-brand-accent mb-2">$899</div>
+                    <div class="text-sm text-brand-muted mb-4">Monthly Price</div>
+                    <div class="text-sm text-white">15,000,000 Tokens</div>
+                    <div class="text-xs text-brand-accent">(Save ~50%)</div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-bold text-brand-accent mb-8">5.1 TOP UP:</h3>
+            <p class="text-brand-muted mb-8">One-time purchases to add capacity.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-black p-6 border border-white/10">
+                    <h4 class="font-bold text-white mb-2">Starter Pack</h4>
+                    <div class="text-2xl font-bold text-brand-accent mb-2">$19</div>
+                    <div class="text-sm text-brand-muted">50,000 Tokens</div>
+                    <div class="text-xs text-brand-muted">$0.00038/token</div>
+                    <div class="text-xs text-brand-muted mt-2">~1.6 Hours of Video Analysis</div>
+                </div>
+                <div class="bg-black p-6 border border-white/10">
+                    <h4 class="font-bold text-white mb-2">Growth Pack</h4>
+                    <div class="text-2xl font-bold text-brand-accent mb-2">$79</div>
+                    <div class="text-sm text-brand-muted">500,000 Tokens</div>
+                    <div class="text-xs text-brand-muted">$0.00016/token</div>
+                    <div class="text-xs text-brand-muted mt-2">~16 Hours of Video Analysis</div>
+                </div>
+                <div class="bg-black p-6 border border-white/10">
+                    <h4 class="font-bold text-white mb-2">Scale Pack</h4>
+                    <div class="text-2xl font-bold text-brand-accent mb-2">$299</div>
+                    <div class="text-sm text-brand-muted">3,000,000 Tokens</div>
+                    <div class="text-xs text-brand-muted">$0.00010/token</div>
+                    <div class="text-xs text-brand-muted mt-2">~100 Hours of Video Analysis</div>
+                </div>
+                <div class="bg-black p-6 border border-white/10">
+                    <h4 class="font-bold text-white mb-2">Enterprise Pack</h4>
+                    <div class="text-2xl font-bold text-brand-accent mb-2">$999</div>
+                    <div class="text-sm text-brand-muted">15,000,000 Tokens</div>
+                    <div class="text-xs text-brand-muted">$0.00006/token</div>
+                    <div class="text-xs text-brand-muted mt-2">~500 Hours of Video Analysis</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-brand-dark border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12">6. Billing & Policy FAQ</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-black p-6 border border-white/10">
+                    <h3 class="text-lg font-bold text-brand-accent mb-3">Rollover Policy</h3>
+                    <p class="text-brand-muted">Unused tokens expire at the end of your billing month. We operate on a "Use It or Lose It" basis to maintain our low infrastructure pricing. Tokens purchased via Top-Up Packs do not expire as long as you have an active subscription.</p>
+                </div>
+                <div class="bg-black p-6 border border-white/10">
+                    <h3 class="text-lg font-bold text-brand-accent mb-3">Overage Protection</h3>
+                    <p class="text-brand-muted">We never auto-charge your card. If your balance hits zero, your data streams simply pause. You can enable "Auto-Recharge" in your dashboard if you prefer uninterrupted service.</p>
+                </div>
+                <div class="bg-black p-6 border border-white/10">
+                    <h3 class="text-lg font-bold text-brand-accent mb-3">Anonymous Payments</h3>
+                    <p class="text-brand-muted">We support privacy-first organizations. You may pay for any tier or token pack using cryptocurrencies or other Payment Methods (Credit/Debit Card, Google and Apple Pay etc. all anonymized) via our licensed third-party processors. No personal billing address required.</p>
+                </div>
+                <div class="bg-black p-6 border border-white/10">
+                    <h3 class="text-lg font-bold text-brand-accent mb-3">Refunds</h3>
+                    <p class="text-brand-muted">Due to the digital nature of tokens and the irreversibility of crypto transactions, all sales are final. We offer a Free Tier so you can validate our data quality before committing financially.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-xl font-bold tracking-tighter flex items-center gap-2">
+                    <div class="w-2 h-2 bg-brand-accent"></div> HYPRSTRM
+                </div>
+                <div class="text-xs text-brand-muted font-mono">
+                    &copy; 2024 HYPRSTRM INC. // SYSTEM STATUS: <span class="text-green-500">OPERATIONAL</span>
+                </div>
+                <div class="flex gap-6 text-xs font-bold text-brand-muted">
+                    <a href="#" class="hover:text-white">TWITTER</a>
+                    <a href="#" class="hover:text-white">GITHUB</a>
+                    <a href="#" class="hover:text-white">DISCORD</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
