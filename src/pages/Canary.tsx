@@ -270,9 +270,9 @@ export function Canary() {
                   desc: 'We\'re a pipeline, not a bucket. Your data hits your webhook and vanishes from our RAM.',
                 },
                 {
-                  icon: '🌍',
-                  title: 'Distributed Chaos',
-                  desc: 'Our servers span so many jurisdictions, a valid warrant would need UN General Assembly approval.',
+                  icon: '🔐',
+                  title: 'Privacy by Design',
+                  desc: 'Our architecture is built so we cannot access your data. We can\'t share what we don\'t have.',
                 },
               ].map((item, index) => (
                 <motion.div
